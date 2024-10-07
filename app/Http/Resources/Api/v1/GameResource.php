@@ -16,8 +16,8 @@ class GameResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
             'name' => $this->name,
+            'slug' => $this->slug,
             'generation' => new GenerationResource($this->whenLoaded('generation')),
             'dexes' => DexResource::collection($this->whenLoaded('dexes')),
             'national_dex' => new DexResource($this->whenLoaded('nationalDex')),

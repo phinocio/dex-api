@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Generation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,37 +15,43 @@ class PokemonSeeder extends Seeder
     {
         DB::table('pokemon')->insert([
             'name' => 'Bulbasaur',
-            'generation_id' => 1,
+            'slug' => 'bulbasaur',
+            'generation_id' => Generation::I,
             'national_dex_number' => 1,
         ]);
 
         DB::table('pokemon')->insert([
             'name' => 'Ivysaur',
-            'generation_id' => 1,
+            'slug' => 'ivysaur',
+            'generation_id' => Generation::I,
             'national_dex_number' => 2,
         ]);
 
         DB::table('pokemon')->insert([
             'name' => 'Venusaur',
-            'generation_id' => 1,
+            'slug' => 'venusaur',
+            'generation_id' => Generation::I,
             'national_dex_number' => 3,
         ]);
 
         DB::table('pokemon')->insert([
             'name' => 'Charmander',
-            'generation_id' => 1,
+            'slug' => 'charmander',
+            'generation_id' => Generation::I,
             'national_dex_number' => 4,
         ]);
 
         DB::table('pokemon')->insert([
             'name' => 'Charmeleon',
-            'generation_id' => 1,
+            'slug' => 'charmeleon',
+            'generation_id' => Generation::I,
             'national_dex_number' => 5,
         ]);
 
         DB::table('pokemon')->insert([
             'name' => 'Charizard',
-            'generation_id' => 1,
+            'slug' => 'charizard',
+            'generation_id' => Generation::I,
             'national_dex_number' => 6,
         ]);
     }

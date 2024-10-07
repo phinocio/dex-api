@@ -15,7 +15,10 @@ class PokemonController extends ApiController
     public function index(): AnonymousResourceCollection
     {
         $pokemon = QueryBuilder::for(Pokemon::class)
-            ->allowedFilters(['name'])
+            ->allowedIncludes([
+                'games',
+                'generation',
+            ])
             ->get();
 
         return PokemonResource::collection($pokemon);
@@ -23,9 +26,11 @@ class PokemonController extends ApiController
 
     public function show(string|int $param): PokemonResource
     {
-        $pokemon = QueryBuilder::for(Pokemon::class)
-            ->allowedFilters(['name'])
-            ->where('id', $param)
+        $pokemon = QueryBuilder::for(Pokemon::where('id', $param)->orWhere('slug', $param))
+            ->allowedIncludes([
+                'games',
+                'generation',
+            ])
             ->first();
 
         return new PokemonResource($pokemon);

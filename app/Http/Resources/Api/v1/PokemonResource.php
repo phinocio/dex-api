@@ -16,9 +16,10 @@ class PokemonResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'generation' => new GenerationResource($this->whenLoaded('generation')),
             'name' => $this->name,
+            'slug' => $this->slug,
+            'generation' => new GenerationResource($this->whenLoaded('generation')),
+            'games' => GameResource::collection($this->whenLoaded('games')),
             'national_dex_number' => $this->national_dex_number,
         ];
     }

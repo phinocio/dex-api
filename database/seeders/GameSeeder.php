@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\Game;
+use App\Enums\Generation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,37 +17,43 @@ class GameSeeder extends Seeder
         DB::table('games')->insert([
             'id' => Game::RED,
             'name' => 'Red',
-            'generation_id' => 1,
+            'slug' => 'red',
+            'generation_id' => Generation::I,
         ]);
 
         DB::table('games')->insert([
             'id' => Game::BLUE,
             'name' => 'Blue',
-            'generation_id' => 1,
+            'slug' => 'blue',
+            'generation_id' => Generation::I,
         ]);
 
         DB::table('games')->insert([
             'id' => Game::YELLOW,
             'name' => 'Yellow',
-            'generation_id' => 1,
+            'slug' => 'yellow',
+            'generation_id' => Generation::I,
         ]);
 
         DB::table('games')->insert([
             'id' => Game::GOLD,
             'name' => 'Gold',
-            'generation_id' => 2,
+            'slug' => 'gold',
+            'generation_id' => Generation::II,
         ]);
 
         DB::table('games')->insert([
             'id' => Game::SILVER,
             'name' => 'Silver',
-            'generation_id' => 2,
+            'slug' => 'silver',
+            'generation_id' => Generation::II,
         ]);
 
         DB::table('games')->insert([
             'id' => Game::CRYSTAL,
             'name' => 'Crystal',
-            'generation_id' => 2,
+            'slug' => 'crystal',
+            'generation_id' => Generation::II,
         ]);
     }
 }

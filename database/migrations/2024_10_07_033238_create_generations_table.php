@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('generations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->unsignedInteger('new_pokemon');
             $table->unsignedInteger('total_pokemon');
         });

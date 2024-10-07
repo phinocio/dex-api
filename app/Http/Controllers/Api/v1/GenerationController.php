@@ -15,14 +15,24 @@ class GenerationController extends ApiController
     public function index(): AnonymousResourceCollection
     {
         $generations = QueryBuilder::for(Generation::class)
-            ->allowedFilters(['name'])
+            ->allowedIncludes([
+                'pokemon',
+            ])
+            ->with('games')
             ->get();
 
         return GenerationResource::collection($generations);
     }
 
-    public function show(Generation $generation): GenerationResource
+    public function show(string|int $param): GenerationResource
     {
+        $generation = QueryBuilder::for(Generation::where('id', $param) ->orWhere('slug', $param))
+            ->allowedIncludes([
+                'pokemon',
+            ])
+            ->with('games')
+            ->firstOrFail();
+
         return new GenerationResource($generation);
     }
 }

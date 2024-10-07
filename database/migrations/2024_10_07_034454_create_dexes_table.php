@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('dexes', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('slug');
             $table->foreignId('game_id')->constrained();
             $table->enum('type', ['generational', 'national', 'regional']);

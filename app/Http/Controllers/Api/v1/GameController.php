@@ -26,7 +26,7 @@ class GameController extends ApiController
 
     public function show(string|int $param): GameResource
     {
-        $game = QueryBuilder::for(Game::class)
+        $game = QueryBuilder::for(Game::where('id', $param) ->orWhere('slug', $param))
             ->allowedIncludes([
                 'pokemon',
                 AllowedInclude::relationship('national_dex', 'nationalDex'),
@@ -35,8 +35,6 @@ class GameController extends ApiController
                 AllowedInclude::relationship('all_dexes', 'dexes'),
             ])
             ->with(['generation'])
-            ->where('id', $param)
-            ->orWhere('name', $param)
             ->firstOrFail();
 
         return new GameResource($game);

@@ -15,13 +15,21 @@ class DexController extends ApiController
             ->allowedIncludes([
                 'pokemon',
             ])
+            ->with('game')
             ->get();
 
         return DexResource::collection($dexes);
     }
 
-    public function show(Dex $dex): DexResource
+    public function show(string|int $param): DexResource
     {
+        $dex = QueryBuilder::for(Dex::where('id', $param) ->orWhere('slug', $param))
+            ->allowedIncludes([
+                'pokemon',
+            ])
+            ->with('game')
+            ->firstOrFail();
+
         return new DexResource($dex);
     }
 }

@@ -16,10 +16,12 @@ class GenerationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
             'name' => $this->name,
+            'slug' => $this->slug,
             'new_pokemon' => $this->new_pokemon,
             'total_pokemon' => $this->total_pokemon,
+            'games' => GameResource::collection($this->whenLoaded('games')),
+            'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
         ];
     }
 }

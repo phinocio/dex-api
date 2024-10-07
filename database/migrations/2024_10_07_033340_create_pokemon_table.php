@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->foreignId('generation_id')->constrained();
             $table->unsignedInteger('national_dex_number')->unique();
         });
