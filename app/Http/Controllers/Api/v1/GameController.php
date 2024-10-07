@@ -12,4 +12,11 @@ class GameController extends ApiController
     {
         return GameResource::collection(Game::all());
     }
+
+    public function show(string|int $param): GameResource
+    {
+        $game = Game::whereId($param)->orWhere('name', $param)->firstOrFail();
+
+        return new GameResource($game);
+    }
 }
