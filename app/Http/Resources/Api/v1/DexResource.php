@@ -18,7 +18,7 @@ class DexResource extends JsonResource
             'id' => $this->id,
             'game' => new GameResource($this->whenLoaded('game')),
             'type' => $this->type,
-            'pokemon' => PokemonResource::collection($this->pokemon),
+            'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
         ];
     }
 }

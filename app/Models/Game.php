@@ -13,7 +13,7 @@ class Game extends Model
 
     public function dexes()
     {
-        return $this->hasMany(Dex::class);
+        return $this->hasMany(Dex::class)->with('pokemon');
     }
 
     public function generation()
@@ -28,16 +28,16 @@ class Game extends Model
 
     public function nationalDex()
     {
-        return $this->hasOne(Dex::class)->where('type', DexType::NATIONAL);
+        return $this->hasOne(Dex::class)->where('type', DexType::NATIONAL)->with('pokemon');
     }
 
     public function regionalDex()
     {
-        return $this->hasOne(Dex::class)->where('type', DexType::REGIONAL);
+        return $this->hasOne(Dex::class)->where('type', DexType::REGIONAL)->with('pokemon');
     }
 
     public function generationalDex()
     {
-        return $this->hasOne(Dex::class)->where('type', DexType::GENERATIONAL);
+        return $this->hasOne(Dex::class)->where('type', DexType::GENERATIONAL)->with('pokemon');
     }
 }

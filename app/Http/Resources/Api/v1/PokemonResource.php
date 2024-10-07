@@ -16,7 +16,7 @@ class PokemonResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'generation' => new GenerationResource($this->generation),
+            'generation' => new GenerationResource($this->whenLoaded('generation')),
             'name' => $this->name,
             'national_dex_number' => $this->national_dex_number,
         ];

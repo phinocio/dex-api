@@ -17,8 +17,11 @@ class GameResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'generation' => new GenerationResource($this->generation),
-            'dexes' => DexResource::collection($this->dexes),
+            'generation' => new GenerationResource($this->whenLoaded('generation')),
+            'dexes' => DexResource::collection($this->whenLoaded('dexes')),
+            'national_dex' => new DexResource($this->whenLoaded('nationalDex')),
+            'regional_dex' => new DexResource($this->whenLoaded('regionalDex')),
+            'generational_dex' => new DexResource($this->whenLoaded('generationalDex')),
             'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
         ];
     }
