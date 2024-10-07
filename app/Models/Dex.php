@@ -2,20 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Dex extends Model
 {
-    /** @use HasFactory<\Database\Factories\DexFactory> */
-    use HasFactory;
-
-    public function game()
+    /**
+     * @return BelongsTo<Game, Dex>
+     */
+    public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class);
     }
 
-    public function pokemon()
+    /**
+     * @return BelongsToMany<Pokemon>
+     */
+    public function pokemon(): BelongsToMany
     {
         return $this->belongsToMany(Pokemon::class);
     }

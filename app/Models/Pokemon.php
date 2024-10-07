@@ -2,22 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Pokemon extends Model
 {
-    /** @use HasFactory<\Database\Factories\PokemonFactory> */
-    use HasFactory;
-
     protected $table = 'pokemon'; // Pokemon is already plural
 
-    public function games()
+    /**
+     * @return BelongsToMany<Game>
+     */
+    public function games(): BelongsToMany
     {
         return $this->belongsToMany(Game::class);
     }
 
-    public function generation()
+    /**
+     * @return BelongsTo<Generation, Pokemon>
+     */
+    public function generation(): BelongsTo
     {
         return $this->belongsTo(Generation::class);
     }

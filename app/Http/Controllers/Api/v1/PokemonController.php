@@ -2,64 +2,32 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Http\Resources\Api\v1\PokemonResource;
 use App\Models\Pokemon;
-use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class PokemonController extends ApiController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        //
+        $pokemon = QueryBuilder::for(Pokemon::class)
+            ->allowedFilters(['name'])
+            ->get();
+
+        return PokemonResource::collection($pokemon);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show(string|int $param): PokemonResource
     {
-        //
-    }
+        $pokemon = QueryBuilder::for(Pokemon::class)
+            ->allowedFilters(['name'])
+            ->where('id', $param)
+            ->first();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Pokemon $pokemon)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pokemon $pokemon)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Pokemon $pokemon)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Pokemon $pokemon)
-    {
-        //
+        return new PokemonResource($pokemon);
     }
 }

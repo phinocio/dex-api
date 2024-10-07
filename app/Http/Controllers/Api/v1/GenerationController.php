@@ -2,64 +2,27 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Http\Resources\Api\v1\GenerationResource;
 use App\Models\Generation;
-use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class GenerationController extends ApiController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        //
+        $generations = QueryBuilder::for(Generation::class)
+            ->allowedFilters(['name'])
+            ->get();
+
+        return GenerationResource::collection($generations);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show(Generation $generation): GenerationResource
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Generation $generation)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Generation $generation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Generation $generation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Generation $generation)
-    {
-        //
+        return new GenerationResource($generation);
     }
 }

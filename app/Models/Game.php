@@ -3,40 +3,58 @@
 namespace App\Models;
 
 use App\Enums\DexType;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Game extends Model
 {
-    /** @use HasFactory<\Database\Factories\GameFactory> */
-    use HasFactory;
-
-    public function dexes()
+    /**
+     * @return HasMany<Dex>
+     */
+    public function dexes(): HasMany
     {
         return $this->hasMany(Dex::class)->with('pokemon');
     }
 
-    public function generation()
+    /**
+     * @return BelongsTo<Generation, Game>
+     */
+    public function generation(): BelongsTo
     {
         return $this->belongsTo(Generation::class);
     }
 
-    public function pokemon()
+    /**
+     * @return BelongsToMany<Pokemon>
+     */
+    public function pokemon(): BelongsToMany
     {
         return $this->belongsToMany(Pokemon::class);
     }
 
-    public function nationalDex()
+    /**
+     * @return HasOne<Dex>
+     */
+    public function nationalDex(): HasOne
     {
         return $this->hasOne(Dex::class)->where('type', DexType::NATIONAL)->with('pokemon');
     }
 
-    public function regionalDex()
+    /**
+     * @return HasOne<Dex>
+     */
+    public function regionalDex(): HasOne
     {
         return $this->hasOne(Dex::class)->where('type', DexType::REGIONAL)->with('pokemon');
     }
 
-    public function generationalDex()
+    /**
+     * @return HasOne<Dex>
+     */
+    public function generationalDex(): HasOne
     {
         return $this->hasOne(Dex::class)->where('type', DexType::GENERATIONAL)->with('pokemon');
     }

@@ -2,20 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Generation extends Model
 {
-    /** @use HasFactory<\Database\Factories\GenerationFactory> */
-    use HasFactory;
-
-    public function games()
+    /**
+     * @return HasMany<Game>
+     */
+    public function games(): HasMany
     {
         return $this->hasMany(Game::class);
     }
 
-    public function pokemon()
+    /**
+     * @return HasMany<Pokemon>
+     */
+    public function pokemon(): HasMany
     {
         return $this->hasMany(Pokemon::class);
     }
