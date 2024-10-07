@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Generation;
+use App\Models\Pokemon;
 use Illuminate\Http\Request;
 
-class GenerationController extends Controller
+class PokemonController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class GenerationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Generation $generation)
+    public function show(Pokemon $pokemon)
     {
         //
     }
@@ -42,7 +42,7 @@ class GenerationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Generation $generation)
+    public function edit(Pokemon $pokemon)
     {
         //
     }
@@ -50,7 +50,7 @@ class GenerationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Generation $generation)
+    public function update(Request $request, Pokemon $pokemon)
     {
         //
     }
@@ -58,7 +58,7 @@ class GenerationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Generation $generation)
+    public function destroy(Pokemon $pokemon)
     {
         //
     }

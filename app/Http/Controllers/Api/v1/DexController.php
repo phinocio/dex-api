@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Dex;
 use Illuminate\Http\Request;
 
-class DexController extends Controller
+class DexController extends ApiController
 {
     /**
      * Display a listing of the resource.

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->foreignId('generation_id')->constrained();
-            $table->string('national_dex_number')->unique();
+            $table->unsignedInteger('national_dex_number')->unique();
         });
     }
 
