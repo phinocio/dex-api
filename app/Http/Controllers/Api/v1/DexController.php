@@ -2,63 +2,24 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Http\Resources\Api\v1\DexResource;
 use App\Models\Dex;
-use Illuminate\Http\Request;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class DexController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $dexes = QueryBuilder::for(Dex::class)
+            ->allowedIncludes([
+                'pokemon',
+            ])
+            ->get();
+
+        return DexResource::collection($dexes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Dex $dex)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Dex $dex)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Dex $dex)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Dex $dex)
     {
         //
     }
