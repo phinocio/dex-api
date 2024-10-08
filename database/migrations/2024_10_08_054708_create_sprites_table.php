@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sprites', function (Blueprint $table) {
             $table->id();
             $table->string('url')->unique();
-            $table->enum('verison', [
+            $table->enum('version', [
                 'red-blue',
                 'yellow',
                 'gold',
