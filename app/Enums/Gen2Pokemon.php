@@ -2,6 +2,9 @@
 
 namespace App\Enums;
 
+/*
+* The number here represents the national dex number of the Pokemon.
+*/
 enum Gen2Pokemon: int
 {
     case CHIKORITA = 152;
