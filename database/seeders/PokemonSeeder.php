@@ -24,7 +24,7 @@ class PokemonSeeder extends Seeder
                     'generation_id' => Generation::I,
                     'national_dex_number' => $pokemon->value, // DOESNT WORK ONCE I ADD FORMS
                 ];
-            })->toArray()
+            })->toArray(),
         );
 
         DB::table('pokemon')->insert(
@@ -36,7 +36,7 @@ class PokemonSeeder extends Seeder
                     'generation_id' => Generation::II,
                     'national_dex_number' => $pokemon->value, // DOESNT WORK ONCE I ADD FORMS
                 ];
-            })->toArray()
+            })->toArray(),
         );
     }
 }

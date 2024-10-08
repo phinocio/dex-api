@@ -27,7 +27,7 @@ class GameSeeder extends Seeder
                         Game::SUN, Game::MOON, Game::ULTRA_SUN, Game::ULTRA_MOON, Game::LETS_GO_PIKACHU, Game::LETS_GO_EEVEE => Generation::VII,
                     },
                 ];
-            })->toArray()
+            })->toArray(),
         );
     }
 }
