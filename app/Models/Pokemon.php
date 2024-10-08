@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pokemon extends Model
 {
-    protected $table = 'pokemon'; // Pokemon is already plural
+    protected $table = 'pokemon';
 
     /**
      * @return BelongsToMany<Game>
@@ -24,5 +25,13 @@ class Pokemon extends Model
     public function generation(): BelongsTo
     {
         return $this->belongsTo(Generation::class);
+    }
+
+    /**
+     * @return HasMany<Sprite>
+     */
+    public function sprites(): HasMany
+    {
+        return $this->hasMany(Sprite::class);
     }
 }

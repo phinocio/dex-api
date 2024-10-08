@@ -21,6 +21,7 @@ class PokemonResource extends JsonResource
             'generation' => new GenerationResource($this->whenLoaded('generation')),
             'games' => GameResource::collection($this->whenLoaded('games')),
             'national_dex_number' => $this->national_dex_number,
+            'sprites' => SpriteResource::collection($this->whenLoaded('sprites')),
         ];
     }
 }
