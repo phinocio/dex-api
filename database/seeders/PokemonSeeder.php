@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Gen1Pokemon;
+use App\Enums\Gen2Pokemon;
 use App\Enums\Generation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,46 +15,28 @@ class PokemonSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pokemon')->insert([
-            'name' => 'Bulbasaur',
-            'slug' => 'bulbasaur',
-            'generation_id' => Generation::I,
-            'national_dex_number' => 1,
-        ]);
+        DB::table('pokemon')->insert(
+            collect(Gen1Pokemon::cases())->map(function (Gen1Pokemon $pokemon) {
+                return [
+                    'id' => $pokemon->value,
+                    'name' => $pokemon->name(),
+                    'slug' => $pokemon->slug(),
+                    'generation_id' => Generation::I,
+                    'national_dex_number' => $pokemon->value, // DOESNT WORK ONCE I ADD FORMS
+                ];
+            })->toArray()
+        );
 
-        DB::table('pokemon')->insert([
-            'name' => 'Ivysaur',
-            'slug' => 'ivysaur',
-            'generation_id' => Generation::I,
-            'national_dex_number' => 2,
-        ]);
-
-        DB::table('pokemon')->insert([
-            'name' => 'Venusaur',
-            'slug' => 'venusaur',
-            'generation_id' => Generation::I,
-            'national_dex_number' => 3,
-        ]);
-
-        DB::table('pokemon')->insert([
-            'name' => 'Charmander',
-            'slug' => 'charmander',
-            'generation_id' => Generation::I,
-            'national_dex_number' => 4,
-        ]);
-
-        DB::table('pokemon')->insert([
-            'name' => 'Charmeleon',
-            'slug' => 'charmeleon',
-            'generation_id' => Generation::I,
-            'national_dex_number' => 5,
-        ]);
-
-        DB::table('pokemon')->insert([
-            'name' => 'Charizard',
-            'slug' => 'charizard',
-            'generation_id' => Generation::I,
-            'national_dex_number' => 6,
-        ]);
+        DB::table('pokemon')->insert(
+            collect(Gen2Pokemon::cases())->map(function (Gen2Pokemon $pokemon) {
+                return [
+                    'id' => $pokemon->value,
+                    'name' => $pokemon->name(),
+                    'slug' => $pokemon->slug(),
+                    'generation_id' => Generation::II,
+                    'national_dex_number' => $pokemon->value, // DOESNT WORK ONCE I ADD FORMS
+                ];
+            })->toArray()
+        );
     }
 }

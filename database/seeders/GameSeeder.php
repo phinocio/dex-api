@@ -14,7 +14,7 @@ class GameSeeder extends Seeder
         DB::table('games')->insert(
             collect(Game::cases())->map(function (Game $game) {
                 return [
-                    'id' => $game,
+                    'id' => $game->value,
                     'name' => $game->name(),
                     'slug' => $game->slug(),
                     'generation_id' => match ($game) {
