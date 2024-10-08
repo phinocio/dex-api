@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\Api\v1\DexController;
 use App\Http\Controllers\Api\v1\GameController;
 use App\Http\Controllers\Api\v1\GenerationController;
