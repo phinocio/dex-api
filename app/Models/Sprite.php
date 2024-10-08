@@ -14,4 +14,14 @@ class Sprite extends Model
     {
         return $this->belongsTo(Pokemon::class);
     }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'shiny' => 'boolean',
+        ];
+    }
 }

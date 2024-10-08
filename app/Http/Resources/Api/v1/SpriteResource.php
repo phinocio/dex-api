@@ -17,7 +17,8 @@ class SpriteResource extends JsonResource
     {
         return [
             'url' => $this->url,
-            'type' => $this->version,
+            'version' => $this->version,
+            'shiny' => $this->shiny,
             'pokemon' => new PokemonResource($this->whenLoaded('pokemon')),
         ];
     }

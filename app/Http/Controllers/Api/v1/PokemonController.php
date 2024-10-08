@@ -18,6 +18,7 @@ class PokemonController extends ApiController
             ->allowedIncludes([
                 'games',
                 'generation',
+                'sprites',
             ])
             ->get();
 
