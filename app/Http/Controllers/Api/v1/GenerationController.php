@@ -26,7 +26,7 @@ class GenerationController extends ApiController
 
     public function show(string|int $param): GenerationResource
     {
-        $generation = QueryBuilder::for(Generation::where('id', $param) ->orWhere('slug', $param))
+        $generation = QueryBuilder::for(Generation::where('id', $param)->orWhere('slug', $param))
             ->allowedIncludes([
                 'pokemon',
             ])

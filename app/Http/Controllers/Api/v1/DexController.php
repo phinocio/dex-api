@@ -23,7 +23,7 @@ class DexController extends ApiController
 
     public function show(string|int $param): DexResource
     {
-        $dex = QueryBuilder::for(Dex::where('id', $param) ->orWhere('slug', $param))
+        $dex = QueryBuilder::for(Dex::where('id', $param)->orWhere('slug', $param))
             ->allowedIncludes([
                 'pokemon',
             ])
