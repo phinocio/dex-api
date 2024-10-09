@@ -29,6 +29,7 @@ class PokemonSeeder extends Seeder
                     'slug' => $pokemon->slug(),
                     'generation_id' => Generation::I,
                     'national_dex_number' => $pokemon->value,
+                    'evolves_from' => $pokemon->evolvesFrom(),
                 ];
             })->toArray(),
         );

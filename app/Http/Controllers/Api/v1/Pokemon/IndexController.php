@@ -31,6 +31,7 @@ class IndexController extends ApiController
                 'sprites',
                 'forms',
             ])
+            ->with('evolvesFrom')
             ->orderBy('national_dex_number', 'asc')
             ->get();
 

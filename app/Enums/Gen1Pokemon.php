@@ -161,6 +161,15 @@ enum Gen1Pokemon: int
     case MEWTWO = 150;
     case MEW = 151;
 
+    public function evolvesFrom(): self|null
+    {
+        return match ($this) {
+            self::IVYSAUR => self::BULBASAUR,
+            self::VENUSAUR => self::IVYSAUR,
+            default => null,
+        };
+    }
+
     public function name(): string
     {
         return match ($this) {

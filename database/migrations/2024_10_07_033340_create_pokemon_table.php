@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->foreignId('generation_id')->constrained();
             $table->unsignedInteger('national_dex_number')->unique();
+            $table->foreignId('evolves_from')->nullable()->constrained('pokemon');
         });
     }
 

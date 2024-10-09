@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Resources\Api\v1;
 
-use App\Http\Resources\FormResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,12 +18,13 @@ class PokemonResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'national_dex_number' => $this->national_dex_number,
             'name' => $this->name,
             'slug' => $this->slug,
-            'generation' => new GenerationResource($this->whenLoaded('generation')),
-            'games' => GameResource::collection($this->whenLoaded('games')),
-            'national_dex_number' => $this->national_dex_number,
+            'evolves_from' => new PokemonResource($this->whenLoaded('evolvesFrom')),
             'forms' => FormResource::collection($this->whenLoaded('forms')),
+            'games' => GameResource::collection($this->whenLoaded('games')),
+            'generation' => new GenerationResource($this->whenLoaded('generation')),
             'sprites' => SpriteResource::collection($this->whenLoaded('sprites')),
             'links' => [
                 'self' => route('v1:pokemon:show', $this->slug),

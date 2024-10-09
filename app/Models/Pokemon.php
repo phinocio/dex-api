@@ -13,6 +13,12 @@ class Pokemon extends Model
 {
     protected $table = 'pokemon';
 
+    /** @return BelongsTo<Pokemon, Pokemon> */
+    public function evolvesFrom(): BelongsTo
+    {
+        return $this->belongsTo(Pokemon::class, 'evolves_from');
+    }
+
     /** @return BelongsToMany<Form> */
     public function forms(): BelongsToMany
     {
