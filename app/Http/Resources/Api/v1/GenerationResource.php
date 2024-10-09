@@ -24,6 +24,9 @@ class GenerationResource extends JsonResource
             'total_pokemon' => $this->total_pokemon,
             'games' => GameResource::collection($this->whenLoaded('games')),
             'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
+            'links' => [
+                'self' => route('v1:generations.show', $this->slug),
+            ],
         ];
     }
 }
