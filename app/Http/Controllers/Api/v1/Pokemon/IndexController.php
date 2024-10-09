@@ -29,6 +29,7 @@ class IndexController extends ApiController
                 'games',
                 'generation',
                 'sprites',
+                'forms',
             ])
             ->orderBy('national_dex_number', 'asc')
             ->get();

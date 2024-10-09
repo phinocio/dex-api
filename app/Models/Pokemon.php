@@ -13,6 +13,12 @@ class Pokemon extends Model
 {
     protected $table = 'pokemon';
 
+    /** @return BelongsToMany<Form> */
+    public function forms(): BelongsToMany
+    {
+        return $this->belongsToMany(Form::class);
+    }
+
     /** @return BelongsToMany<Game> */
     public function games(): BelongsToMany
     {
