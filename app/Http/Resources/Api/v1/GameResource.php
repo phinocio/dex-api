@@ -26,6 +26,9 @@ class GameResource extends JsonResource
             'regional_dex' => new GameDexResource($this->whenLoaded('regionalDex')),
             'generational_dex' => new GameDexResource($this->whenLoaded('generationalDex')),
             'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
+            'links' => [
+                'self' => route('games.show', $this->slug),
+            ],
         ];
     }
 }
