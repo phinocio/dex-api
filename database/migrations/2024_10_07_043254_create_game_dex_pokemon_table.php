@@ -11,9 +11,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('game_dex_pokemon', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('game_dex_id')->constrained();
             $table->foreignId('pokemon_id')->constrained('pokemon');
+
+            $table->primary(['game_dex_id', 'pokemon_id']);
         });
     }
 
