@@ -4,34 +4,34 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Resources\Api\v1\DexResource;
-use App\Models\Dex;
+use App\Http\Resources\Api\v1\GameDexResource;
+use App\Models\GameDex;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class DexController extends ApiController
+class GameDexController extends ApiController
 {
     public function index(): AnonymousResourceCollection
     {
-        $dexes = QueryBuilder::for(Dex::class)
+        $dexes = QueryBuilder::for(GameDex::class)
             ->allowedIncludes([
                 'pokemon',
             ])
             ->with('game')
             ->get();
 
-        return DexResource::collection($dexes);
+        return GameDexResource::collection($dexes);
     }
 
-    public function show(string|int $param): DexResource
+    public function show(string|int $param): GameDexResource
     {
-        $dex = QueryBuilder::for(Dex::where('id', $param)->orWhere('slug', $param))
+        $dex = QueryBuilder::for(GameDex::where('id', $param)->orWhere('slug', $param))
             ->allowedIncludes([
                 'pokemon',
             ])
             ->with('game')
             ->firstOrFail();
 
-        return new DexResource($dex);
+        return new GameDexResource($dex);
     }
 }

@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Dex extends Model
+class GameDex extends Model
 {
     /**
-     * @return BelongsTo<Game, Dex>
+     * @return BelongsTo<Game, GameDex>
      */
     public function game(): BelongsTo
     {

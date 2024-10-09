@@ -21,10 +21,10 @@ class GameResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'generation' => new GenerationResource($this->whenLoaded('generation')),
-            'dexes' => DexResource::collection($this->whenLoaded('dexes')),
-            'national_dex' => new DexResource($this->whenLoaded('nationalDex')),
-            'regional_dex' => new DexResource($this->whenLoaded('regionalDex')),
-            'generational_dex' => new DexResource($this->whenLoaded('generationalDex')),
+            'dexes' => GameDexResource::collection($this->whenLoaded('dexes')),
+            'national_dex' => new GameDexResource($this->whenLoaded('nationalDex')),
+            'regional_dex' => new GameDexResource($this->whenLoaded('regionalDex')),
+            'generational_dex' => new GameDexResource($this->whenLoaded('generationalDex')),
             'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
         ];
     }

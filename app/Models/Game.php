@@ -14,11 +14,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Game extends Model
 {
     /**
-     * @return HasMany<Dex>
+     * @return HasMany<GameDex>
      */
     public function dexes(): HasMany
     {
-        return $this->hasMany(Dex::class)->with('pokemon');
+        return $this->hasMany(GameDex::class)->with('pokemon');
     }
 
     /**
@@ -38,26 +38,26 @@ class Game extends Model
     }
 
     /**
-     * @return HasOne<Dex>
+     * @return HasOne<GameDex>
      */
     public function nationalDex(): HasOne
     {
-        return $this->hasOne(Dex::class)->where('type', DexType::NATIONAL)->with('pokemon');
+        return $this->hasOne(GameDex::class)->where('type', DexType::NATIONAL)->with('pokemon');
     }
 
     /**
-     * @return HasOne<Dex>
+     * @return HasOne<GameDex>
      */
     public function regionalDex(): HasOne
     {
-        return $this->hasOne(Dex::class)->where('type', DexType::REGIONAL)->with('pokemon');
+        return $this->hasOne(GameDex::class)->where('type', DexType::REGIONAL)->with('pokemon');
     }
 
     /**
-     * @return HasOne<Dex>
+     * @return HasOne<GameDex>
      */
     public function generationalDex(): HasOne
     {
-        return $this->hasOne(Dex::class)->where('type', DexType::GENERATIONAL)->with('pokemon');
+        return $this->hasOne(GameDex::class)->where('type', DexType::GENERATIONAL)->with('pokemon');
     }
 }

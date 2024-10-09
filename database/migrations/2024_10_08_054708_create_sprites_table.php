@@ -44,7 +44,6 @@ return new class extends Migration {
             $table->string('version');
             $table->boolean('shiny')->default(false);
             $table->foreignId('pokemon_id')->constrained();
-            $table->json('meta')->nullable();
         });
 
         // Modify the 'version' column to use the custom enum type

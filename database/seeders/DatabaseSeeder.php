@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             GenerationSeeder::class,
             GameSeeder::class,
             PokemonSeeder::class,
-            DexSeeder::class,
-            DexPokemonSeeder::class,
+            GameDexSeeder::class,
+            GameDexPokemonSeeder::class,
             GamePokemonSeeder::class,
             SpriteSeeder::class,
         ]);

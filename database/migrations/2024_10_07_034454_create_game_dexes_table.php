@@ -21,7 +21,7 @@ return new class extends Migration {
             END IF;
         END$$;");
 
-        Schema::create('dexes', function (Blueprint $table) {
+        Schema::create('game_dexes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
@@ -32,7 +32,7 @@ return new class extends Migration {
         });
 
         // Modify the 'type' column to use the enum type
-        DB::statement("ALTER TABLE dexes ALTER COLUMN type TYPE dex_type_enum USING (type::dex_type_enum)");
+        DB::statement("ALTER TABLE game_dexes ALTER COLUMN type TYPE dex_type_enum USING (type::dex_type_enum)");
     }
 
     /**
@@ -41,7 +41,7 @@ return new class extends Migration {
     public function down(): void
     {
         // Drop the table first
-        Schema::dropIfExists('dexes');
+        Schema::dropIfExists('game_dexes');
 
         // Conditionally drop the enum type only if it exists
         DB::statement("DO $$
