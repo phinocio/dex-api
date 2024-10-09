@@ -16,8 +16,8 @@ return new class extends Migration {
         // Conditionally create the enum type only if it doesn't exist
         DB::statement("DO $$
         BEGIN
-            IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'dex_type_enum') THEN
-                CREATE TYPE dex_type_enum AS ENUM ('generational', 'national', 'regional');
+            IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'game_dex_type_enum') THEN
+                CREATE TYPE game_dex_type_enum AS ENUM ('generational', 'national', 'regional');
             END IF;
         END$$;");
 
@@ -32,7 +32,7 @@ return new class extends Migration {
         });
 
         // Modify the 'type' column to use the enum type
-        DB::statement("ALTER TABLE game_dexes ALTER COLUMN type TYPE dex_type_enum USING (type::dex_type_enum)");
+        DB::statement("ALTER TABLE game_dexes ALTER COLUMN type TYPE game_dex_type_enum USING (type::game_dex_type_enum)");
     }
 
     /**
@@ -46,8 +46,8 @@ return new class extends Migration {
         // Conditionally drop the enum type only if it exists
         DB::statement("DO $$
         BEGIN
-            IF EXISTS (SELECT 1 FROM pg_type WHERE typname = 'dex_type_enum') THEN
-                DROP TYPE dex_type_enum;
+            IF EXISTS (SELECT 1 FROM pg_type WHERE typname = 'game_dex_type_enum') THEN
+                DROP TYPE game_dex_type_enum;
             END IF;
         END$$;");
     }
