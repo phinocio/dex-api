@@ -13,25 +13,19 @@ class Pokemon extends Model
 {
     protected $table = 'pokemon';
 
-    /**
-     * @return BelongsToMany<Game>
-     */
+    /** @return BelongsToMany<Game> */
     public function games(): BelongsToMany
     {
         return $this->belongsToMany(Game::class);
     }
 
-    /**
-     * @return BelongsTo<Generation, Pokemon>
-     */
+    /** @return BelongsTo<Generation, Pokemon> */
     public function generation(): BelongsTo
     {
         return $this->belongsTo(Generation::class);
     }
 
-    /**
-     * @return HasMany<Sprite>
-     */
+    /** @return HasMany<Sprite> */
     public function sprites(): HasMany
     {
         return $this->hasMany(Sprite::class);

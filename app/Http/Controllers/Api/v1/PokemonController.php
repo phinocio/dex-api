@@ -11,9 +11,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 class PokemonController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     */
+    /** Display a listing of the resource. */
     public function index(): AnonymousResourceCollection
     {
         $pokemon = QueryBuilder::for(Pokemon::class)

@@ -13,49 +13,37 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Game extends Model
 {
-    /**
-     * @return HasMany<GameDex>
-     */
+    /** @return HasMany<GameDex> */
     public function dexes(): HasMany
     {
         return $this->hasMany(GameDex::class)->with('pokemon');
     }
 
-    /**
-     * @return BelongsTo<Generation, Game>
-     */
+    /** @return BelongsTo<Generation, Game> */
     public function generation(): BelongsTo
     {
         return $this->belongsTo(Generation::class);
     }
 
-    /**
-     * @return BelongsToMany<Pokemon>
-     */
+    /** @return BelongsToMany<Pokemon> */
     public function pokemon(): BelongsToMany
     {
         return $this->belongsToMany(Pokemon::class);
     }
 
-    /**
-     * @return HasOne<GameDex>
-     */
+    /** @return HasOne<GameDex> */
     public function nationalDex(): HasOne
     {
         return $this->hasOne(GameDex::class)->where('type', DexType::NATIONAL)->with('pokemon');
     }
 
-    /**
-     * @return HasOne<GameDex>
-     */
+    /** @return HasOne<GameDex> */
     public function regionalDex(): HasOne
     {
         return $this->hasOne(GameDex::class)->where('type', DexType::REGIONAL)->with('pokemon');
     }
 
-    /**
-     * @return HasOne<GameDex>
-     */
+    /** @return HasOne<GameDex> */
     public function generationalDex(): HasOne
     {
         return $this->hasOne(GameDex::class)->where('type', DexType::GENERATIONAL)->with('pokemon');

@@ -10,9 +10,7 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
+    /** Register any application services. */
     public function register(): void
     {
         if ($this->app->environment('local')) {
@@ -21,9 +19,7 @@ class AppServiceProvider extends ServiceProvider
         }
     }
 
-    /**
-     * Bootstrap any application services.
-     */
+    /** Bootstrap any application services. */
     public function boot(): void
     {
         Model::shouldBeStrict(! app()->isProduction());

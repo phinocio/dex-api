@@ -11,9 +11,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 class GenerationController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     */
+    /** Display a listing of the resource. */
     public function index(): AnonymousResourceCollection
     {
         $generations = QueryBuilder::for(Generation::class)

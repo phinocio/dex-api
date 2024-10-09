@@ -10,17 +10,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class GameDex extends Model
 {
-    /**
-     * @return BelongsTo<Game, GameDex>
-     */
+    /** @return BelongsTo<Game, GameDex> */
     public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class);
     }
 
-    /**
-     * @return BelongsToMany<Pokemon>
-     */
+    /** @return BelongsToMany<Pokemon> */
     public function pokemon(): BelongsToMany
     {
         return $this->belongsToMany(Pokemon::class);

@@ -9,17 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Generation extends Model
 {
-    /**
-     * @return HasMany<Game>
-     */
+    /** @return HasMany<Game> */
     public function games(): HasMany
     {
         return $this->hasMany(Game::class);
     }
 
-    /**
-     * @return HasMany<Pokemon>
-     */
+    /** @return HasMany<Pokemon> */
     public function pokemon(): HasMany
     {
         return $this->hasMany(Pokemon::class);

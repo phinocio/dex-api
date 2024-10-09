@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
+    /** Run the migrations. */
     public function up(): void
     {
         // Conditionally create the enum type only if it doesn't exist
@@ -35,9 +33,7 @@ return new class extends Migration {
         DB::statement("ALTER TABLE game_dexes ALTER COLUMN type TYPE game_dex_type_enum USING (type::game_dex_type_enum)");
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    /** Reverse the migrations. */
     public function down(): void
     {
         // Drop the table first

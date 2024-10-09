@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class SpriteSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+    /** Run the database seeds. */
     public function run(): void
     {
         DB::table('sprites')->insert([
