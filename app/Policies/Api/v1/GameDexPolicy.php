@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Policies;
+namespace App\Policies\Api\v1;
 
 use App\Models\GameDex;
 use App\Models\User;
 
 class GameDexPolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(?User $user): bool
     {
         return true;
     }
 
-    public function view(User $user, GameDex $gameDex): bool
+    public function view(?User $user, GameDex $gameDex): bool
     {
         return true;
     }

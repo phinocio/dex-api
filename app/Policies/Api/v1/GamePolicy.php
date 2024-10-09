@@ -9,12 +9,12 @@ use App\Models\User;
 
 class GamePolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(?User $user): bool
     {
         return true;
     }
 
-    public function view(User $user, Game $game): bool
+    public function view(?User $user, ?Game $game): bool
     {
         return true;
     }

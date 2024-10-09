@@ -9,12 +9,12 @@ use App\Models\User;
 
 class PokemonPolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(?User $user): bool
     {
         return true;
     }
 
-    public function view(User $user, Pokemon $pokemon): bool
+    public function view(?User $user, Pokemon $pokemon): bool
     {
         return true;
     }
