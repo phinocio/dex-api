@@ -21,7 +21,7 @@ class GameResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'generation' => new GenerationResource($this->whenLoaded('generation')),
-            'dexes' => GameDexResource::collection($this->whenLoaded('dexes')),
+            'dexes' => GameDexResource::collection($this->whenLoaded('gameDexes')),
             'national_dex' => new GameDexResource($this->whenLoaded('nationalDex')),
             'regional_dex' => new GameDexResource($this->whenLoaded('regionalDex')),
             'generational_dex' => new GameDexResource($this->whenLoaded('generationalDex')),

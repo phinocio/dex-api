@@ -18,6 +18,7 @@ class GameDexResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'name' => $this->name,
             'slug' => $this->slug,
             'game' => new GameResource($this->whenLoaded('game')),
             'type' => $this->type,

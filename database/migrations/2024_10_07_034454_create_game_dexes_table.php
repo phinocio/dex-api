@@ -23,7 +23,6 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->foreignId('game_id')->constrained();
 
             // Define 'type' as a string initially
             $table->string('type');

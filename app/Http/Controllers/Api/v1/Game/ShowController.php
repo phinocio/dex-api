@@ -21,10 +21,7 @@ class ShowController extends ApiController
         $game = QueryBuilder::for(Game::where('slug', $param))
             ->allowedIncludes([
                 'pokemon',
-                AllowedInclude::relationship('national_dex', 'nationalDex'),
-                AllowedInclude::relationship('regional_dex', 'regionalDex'),
-                AllowedInclude::relationship('generational_dex', 'generationalDex'),
-                AllowedInclude::relationship('all_dexes', 'dexes'),
+                AllowedInclude::relationship('dexes', 'gameDexes'),
             ])
             ->with(['generation'])
             ->firstOrFail();

@@ -36,6 +36,28 @@ enum Game: int
     case ULTRA_MOON = 28;
     case LETS_GO_PIKACHU = 29;
     case LETS_GO_EEVEE = 30;
+    case SWORD = 31;
+    case SHIELD = 32;
+    case BRILLIANT_DIAMOND = 33;
+    case SHINING_PEARL = 34;
+    case LEGENDS_ARCEUS = 35;
+    case SCARLET = 36;
+    case VIOLET = 37;
+
+    public function generation(): Generation
+    {
+        return match ($this) {
+            Game::RED, Game::BLUE, Game::YELLOW => Generation::I,
+            Game::GOLD, Game::SILVER, Game::CRYSTAL => Generation::II,
+            Game::RUBY, Game::SAPPHIRE, Game::EMERALD, Game::FIRE_RED, Game::LEAF_GREEN => Generation::III,
+            Game::DIAMOND, Game::PEARL, Game::PLATINUM, Game::HEART_GOLD, Game::SOUL_SILVER => Generation::IV,
+            Game::BLACK, Game::WHITE, Game::BLACK_2, Game::WHITE_2 => Generation::V,
+            Game::X, Game::Y, Game::OMEGA_RUBY, Game::ALPHA_SAPPHIRE => Generation::VI,
+            Game::SUN, Game::MOON, Game::ULTRA_SUN, Game::ULTRA_MOON, Game::LETS_GO_PIKACHU, Game::LETS_GO_EEVEE => Generation::VII,
+            Game::SWORD, Game::SHIELD, Game::BRILLIANT_DIAMOND, Game::SHINING_PEARL, Game::LEGENDS_ARCEUS => Generation::VIII,
+            Game::SCARLET, Game::VIOLET => Generation::IX,
+        };
+    }
 
     public function name(): string
     {
@@ -70,6 +92,13 @@ enum Game: int
             self::ULTRA_MOON => 'Ultra Moon',
             self::LETS_GO_PIKACHU => 'Let\'s Go, Pikachu!',
             self::LETS_GO_EEVEE => 'Let\'s Go, Eevee!',
+            self::SWORD => 'Sword',
+            self::SHIELD => 'Shield',
+            self::BRILLIANT_DIAMOND => 'Brilliant Diamond',
+            self::SHINING_PEARL => 'Shining Pearl',
+            self::LEGENDS_ARCEUS => 'Legends Arceus',
+            self::SCARLET => 'Scarlet',
+            self::VIOLET => 'Violet',
         };
     }
 
@@ -106,6 +135,13 @@ enum Game: int
             self::ULTRA_MOON => 'ultra-moon',
             self::LETS_GO_PIKACHU => 'lets-go-pikachu',
             self::LETS_GO_EEVEE => 'lets-go-eevee',
+            self::SWORD => 'sword',
+            self::SHIELD => 'shield',
+            self::BRILLIANT_DIAMOND => 'brilliant-diamond',
+            self::SHINING_PEARL => 'shining-pearl',
+            self::LEGENDS_ARCEUS => 'legends-arceus',
+            self::SCARLET => 'scarlet',
+            self::VIOLET => 'violet',
         };
     }
 }

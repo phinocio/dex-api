@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             SpriteSeeder::class,
             FormSeeder::class,
             FormPokemonSeeder::class,
+            GameGameDexSeeder::class,
         ]);
     }
 }

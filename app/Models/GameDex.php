@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class GameDex extends Model
 {
-    /** @return BelongsTo<Game, GameDex> */
-    public function game(): BelongsTo
+    /** @return BelongsToMany<Game> */
+    public function game(): BelongsToMany
     {
-        return $this->belongsTo(Game::class);
+        return $this->belongsToMany(Game::class);
     }
 
     /** @return BelongsToMany<Pokemon> */
