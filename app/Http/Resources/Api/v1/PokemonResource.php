@@ -25,7 +25,7 @@ class PokemonResource extends JsonResource
             'national_dex_number' => $this->national_dex_number,
             'sprites' => SpriteResource::collection($this->whenLoaded('sprites')),
             'links' => [
-                'self' => route('v1:pokemon.show', $this->slug),
+                'self' => route('v1:pokemon:show', $this->slug),
             ],
         ];
     }
