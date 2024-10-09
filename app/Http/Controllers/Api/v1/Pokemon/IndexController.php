@@ -11,6 +11,7 @@ use App\Policies\Api\v1\PokemonPolicy;
 use App\Http\Controllers\Api\v1\ApiController;
 use App\Http\Resources\Api\v1\PokemonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class IndexController extends ApiController
 {
@@ -21,11 +22,15 @@ class IndexController extends ApiController
         Gate::authorize('viewAny', Pokemon::class);
 
         $pokemon = QueryBuilder::for(Pokemon::class)
+            ->allowedFilters([
+                AllowedFilter::exact('generation', 'generation.slug'),
+            ])
             ->allowedIncludes([
                 'games',
                 'generation',
                 'sprites',
             ])
+            ->orderBy('national_dex_number', 'asc')
             ->get();
 
         return PokemonResource::collection($pokemon);
