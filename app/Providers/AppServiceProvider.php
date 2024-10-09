@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::shouldBeStrict(! app()->isProduction());
         ResetPassword::createUrlUsing(function (object $notifiable, string $token) {
+            /** @phpstan-ignore-next-line */
             return config('app.frontend_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
     }

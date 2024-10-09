@@ -80,7 +80,6 @@ class LoginRequest extends FormRequest
 
     /**
      * Get the rate limiting throttle key for the request.
-     * @return string
      */
     public function throttleKey(): string
     {
