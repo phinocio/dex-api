@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+// TODO: Make XY/ORAS
 enum GameDex: int
 {
     case RBY_NATIONAL = 1; // Red, Blue, Yellow
@@ -13,40 +14,38 @@ enum GameDex: int
     case RSE_NATIONAL = 5; // Ruby, Sapphire, Emerald
     case RSE_GENERATIONAL = 6; // Ruby, Sapphire, Emerald
     case DP_REGIONAL = 7; // Diamond, Pearl
-    case DPPT_NATIONAL = 8; // Diamond, Pearl, Platinum
+    case DPPT_HGSS_NATIONAL = 8; // Diamond, Pearl, Platinum, HeartGold, SoulSilver
     case DPPT_GENERATIONAL = 9; // Diamond, Pearl, Platinum
     case PT_REGIONAL = 10; // Platinum
     case HGSS_REGIONAL = 11; // HeartGold, SoulSilver
-    case HGSS_NATIONAL = 12; // HeartGold, SoulSilver
-    case HGSS_GENERATIONAL = 13; // HeartGold, SoulSilver
-    case BW_REGIONAL = 14; // Black, White
-    case BW_B2W2_NATIONAL = 15; // Black, White, Black 2, White 2
-    case BW_B2W2_GENERATIONAL = 16; // Black, White, Black 2, White 2
-    case B2W2_REGIONAL = 17; // Black 2, White 2
-    case XY_REGIONAL = 18; // X, Y
-    case XY_NATIONAL = 19; // X, Y
-    case XY_GENERATIONAL = 20; // X, Y
-    case ORAS_REGIONAL = 21; // Omega Ruby, Alpha Sapphire
-    case ORAS_NATIONAL = 22; // Omega Ruby, Alpha Sapphire
-    case ORAS_GENERATIONAL = 23; // Omega Ruby, Alpha Sapphire
-    case SM_REGIONAL = 24; // Sun, Moon
-    case SM_USUM_NATIONAL = 25; // Sun, Moon
-    case SM_USUM_GENERATIONAL = 26; // Sun, Moon
-    case USUM_REGIONAL = 27; // Ultra Sun, Ultra Moon
-    case LGPE_REGIONAL = 28; // Let's Go, Pikachu! and Let's Go, Eevee!
-    case LGPE_NATIONAL = 29; // Let's Go, Pikachu! and Let's Go, Eevee!
-    case LGPE_GENERATIONAL = 30; // Let's Go, Pikachu! and Let's Go, Eevee!
-    case SWSH_REGIONAL = 31; // Sword, Shield
-    case SWSH_GENERATIONAL = 32; // Sword, Shield
-    case SWSH_IOA_REGIONAL = 33; // Isle of Armor
-    case SWSH_CT_REGIONAL = 34; // Crown Tundra
-    case LA_REGIONAL = 35; // Legends: Arceus
-    case LA_GENERATIONAL = 36; // Legends: Arceus
-    case SV_REGIONAL = 37; // Scarlet, Violet
-    case SV_NATIONAL = 38; // Scarlet, Violet
-    case SV_GENERATIONAL = 39; // Scarlet, Violet
-    case SV_TM_REGIONAL = 40; // Teal Mask
-    case SV_ID_REGIONAL = 41; // Indigo Disk
+    case HGSS_GENERATIONAL = 12; // HeartGold, SoulSilver
+    case BW_REGIONAL = 13; // Black, White
+    case BW_B2W2_NATIONAL = 14; // Black, White, Black 2, White 2
+    case BW_B2W2_GENERATIONAL = 15; // Black, White, Black 2, White 2
+    case B2W2_REGIONAL = 16; // Black 2, White 2
+    case XY_REGIONAL = 17; // X, Y
+    case XY_ORAS_NATIONAL = 18; // X, Y, Omega Ruby, Alpha Sapphire
+    case XY_GENERATIONAL = 19; // X, Y
+    case ORAS_REGIONAL = 20; // Omega Ruby, Alpha Sapphire
+    case ORAS_GENERATIONAL = 21; // Omega Ruby, Alpha Sapphire
+    case SM_REGIONAL = 22; // Sun, Moon
+    case SM_USUM_NATIONAL = 23; // Sun, Moon, Ultra Sun, Ultra Moon
+    case SM_USUM_GENERATIONAL = 24; // Sun, Moon, Ultra Sun, Ultra Moon
+    case USUM_REGIONAL = 25; // Ultra Sun, Ultra Moon
+    case LGPE_REGIONAL = 26; // Let's Go, Pikachu! and Let's Go, Eevee!
+    case LGPE_NATIONAL = 27; // Let's Go, Pikachu! and Let's Go, Eevee!
+    case LGPE_GENERATIONAL = 28; // Let's Go, Pikachu! and Let's Go, Eevee!
+    case SWSH_REGIONAL = 29; // Sword, Shield
+    case SWSH_GENERATIONAL = 30; // Sword, Shield
+    case SWSH_IOA_REGIONAL = 31; // Isle of Armor
+    case SWSH_CT_REGIONAL = 32; // Crown Tundra
+    case LA_REGIONAL = 33; // Legends: Arceus
+    case LA_GENERATIONAL = 34; // Legends: Arceus
+    case SV_REGIONAL = 35; // Scarlet, Violet
+    case SV_NATIONAL = 36; // Scarlet, Violet
+    case SV_GENERATIONAL = 37; // Scarlet, Violet
+    case SV_TM_REGIONAL = 38; // Teal Mask
+    case SV_ID_REGIONAL = 39; // Indigo Disk
 
     public function name(): string
     {
@@ -58,21 +57,19 @@ enum GameDex: int
             self::RSE_NATIONAL => 'RSE National',
             self::RSE_GENERATIONAL => 'RSE Generational',
             self::DP_REGIONAL => 'DP Regional',
-            self::DPPT_NATIONAL => 'DPPT National',
+            self::DPPT_HGSS_NATIONAL => 'DPPT_HGSS National',
             self::DPPT_GENERATIONAL => 'DPPT Generational',
             self::PT_REGIONAL => 'Pt Regional',
             self::HGSS_REGIONAL => 'HGSS Regional',
-            self::HGSS_NATIONAL => 'HGSS National',
             self::HGSS_GENERATIONAL => 'HGSS Generational',
             self::BW_REGIONAL => 'BW Regional',
             self::BW_B2W2_NATIONAL => 'BW B2W2 National',
             self::BW_B2W2_GENERATIONAL => 'BW B2W2 Generational',
             self::B2W2_REGIONAL => 'B2W2 Regional',
             self::XY_REGIONAL => 'XY Regional',
-            self::XY_NATIONAL => 'XY National',
+            self::XY_ORAS_NATIONAL => 'XY_ORAS National',
             self::XY_GENERATIONAL => 'XY Generational',
             self::ORAS_REGIONAL => 'ORAS Regional',
-            self::ORAS_NATIONAL => 'ORAS National',
             self::ORAS_GENERATIONAL => 'ORAS Generational',
             self::SM_REGIONAL => 'SM Regional',
             self::SM_USUM_NATIONAL => 'SM USUM National',
@@ -105,21 +102,19 @@ enum GameDex: int
             self::RSE_NATIONAL => 'rse-national',
             self::RSE_GENERATIONAL => 'rse-generational',
             self::DP_REGIONAL => 'dp-regional',
-            self::DPPT_NATIONAL => 'dppt-national',
+            self::DPPT_HGSS_NATIONAL => 'dppt-hgss-national',
             self::DPPT_GENERATIONAL => 'dppt-generational',
             self::PT_REGIONAL => 'pt-regional',
             self::HGSS_REGIONAL => 'hgss-regional',
-            self::HGSS_NATIONAL => 'hgss-national',
             self::HGSS_GENERATIONAL => 'hgss-generational',
             self::BW_REGIONAL => 'bw-regional',
             self::BW_B2W2_NATIONAL => 'bw-b2w2-national',
             self::BW_B2W2_GENERATIONAL => 'bw-b2w2-generational',
             self::B2W2_REGIONAL => 'b2w2-regional',
             self::XY_REGIONAL => 'xy-regional',
-            self::XY_NATIONAL => 'xy-national',
+            self::XY_ORAS_NATIONAL => 'xy-oras-national',
             self::XY_GENERATIONAL => 'xy-generational',
             self::ORAS_REGIONAL => 'oras-regional',
-            self::ORAS_NATIONAL => 'oras-national',
             self::ORAS_GENERATIONAL => 'oras-generational',
             self::SM_REGIONAL => 'sm-regional',
             self::SM_USUM_NATIONAL => 'sm-usum-national',
@@ -147,8 +142,8 @@ enum GameDex: int
         return match ($this) {
             /** National Dexes **/
             self::RBY_NATIONAL, self::GSC_NATIONAL, self::RSE_NATIONAL,
-            self::DPPT_NATIONAL, self::HGSS_NATIONAL, self::BW_B2W2_NATIONAL,
-            self::XY_NATIONAL, self::ORAS_NATIONAL, self::SM_USUM_NATIONAL,
+            self::DPPT_HGSS_NATIONAL, self::BW_B2W2_NATIONAL,
+            self::XY_ORAS_NATIONAL,  self::SM_USUM_NATIONAL,
             self::LGPE_NATIONAL, self::SV_NATIONAL
             => DexType::NATIONAL,
 
