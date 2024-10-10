@@ -14,7 +14,7 @@ use App\Enums\Gen6Pokemon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class Gen5DexesSeeder extends Seeder
+class Gen6DexesSeeder extends Seeder
 {
     /** Run the database seeds. */
     public function run(): void

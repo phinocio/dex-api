@@ -37,7 +37,7 @@ class Gen5DexesSeeder extends Seeder
         ])->toArray();
 
 
-        DB::table('game_dexes')->insert($nationalDex);
-        DB::table('game_dexes')->insert($generationalDex);
+        DB::table('game_dex_pokemon')->insert($nationalDex);
+        DB::table('game_dex_pokemon')->insert($generationalDex);
     }
 }

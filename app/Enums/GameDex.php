@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
-// TODO: Make XY/ORAS
 enum GameDex: int
 {
     case RBY_NATIONAL = 1; // Red, Blue, Yellow
@@ -39,13 +38,16 @@ enum GameDex: int
     case SWSH_GENERATIONAL = 30; // Sword, Shield
     case SWSH_IOA_REGIONAL = 31; // Isle of Armor
     case SWSH_CT_REGIONAL = 32; // Crown Tundra
-    case LA_REGIONAL = 33; // Legends: Arceus
-    case LA_GENERATIONAL = 34; // Legends: Arceus
-    case SV_REGIONAL = 35; // Scarlet, Violet
-    case SV_NATIONAL = 36; // Scarlet, Violet
-    case SV_GENERATIONAL = 37; // Scarlet, Violet
-    case SV_TM_REGIONAL = 38; // Teal Mask
-    case SV_ID_REGIONAL = 39; // Indigo Disk
+    case BDSP_REGIONAL = 33; // Brilliant Diamond, Shining Pearl
+    case BDSP_NATIONAL = 34; // Brilliant Diamond, Shining Pearl
+    case BDSP_GENERATIONAL = 35; // Brilliant Diamond, Shining Pearl
+    case LA_REGIONAL = 36; // Legends: Arceus
+    case LA_GENERATIONAL = 37; // Legends: Arceus
+    case SV_REGIONAL = 38; // Scarlet, Violet
+    case SV_NATIONAL = 39; // Scarlet, Violet
+    case SV_GENERATIONAL = 40; // Scarlet, Violet
+    case SV_TM_REGIONAL = 41; // Teal Mask
+    case SV_ID_REGIONAL = 42; // Indigo Disk
 
     public function name(): string
     {
@@ -82,6 +84,9 @@ enum GameDex: int
             self::SWSH_GENERATIONAL => 'SWSH Generational',
             self::SWSH_IOA_REGIONAL => 'SWSH Isle of Armor Regional',
             self::SWSH_CT_REGIONAL => 'SWSH Crown Tundra Regional',
+            self::BDSP_REGIONAL => 'BDSP Regional',
+            self::BDSP_NATIONAL => 'BDSP National',
+            self::BDSP_GENERATIONAL => 'BDSP Generational',
             self::LA_REGIONAL => 'LA Regional',
             self::LA_GENERATIONAL => 'LA Generational',
             self::SV_REGIONAL => 'SV Regional',
@@ -127,6 +132,9 @@ enum GameDex: int
             self::SWSH_GENERATIONAL => 'swhs-generational',
             self::SWSH_IOA_REGIONAL => 'swhs-ioa-regional',
             self::SWSH_CT_REGIONAL => 'swhs-ct-regional',
+            self::BDSP_REGIONAL => 'bdsp-regional',
+            self::BDSP_NATIONAL => 'bdsp-national',
+            self::BDSP_GENERATIONAL => 'bdsp-generational',
             self::LA_REGIONAL => 'la-regional',
             self::LA_GENERATIONAL => 'la-generational',
             self::SV_REGIONAL => 'sv-regional',
@@ -144,14 +152,15 @@ enum GameDex: int
             self::RBY_NATIONAL, self::GSC_NATIONAL, self::RSE_NATIONAL,
             self::DPPT_HGSS_NATIONAL, self::BW_B2W2_NATIONAL,
             self::XY_ORAS_NATIONAL,  self::SM_USUM_NATIONAL,
-            self::LGPE_NATIONAL, self::SV_NATIONAL
+            self::LGPE_NATIONAL, self::BDSP_NATIONAL,self::SV_NATIONAL
             => DexType::NATIONAL,
 
             /** Generational Dexes **/
             self::GSC_GENERATIONAL, self::RSE_GENERATIONAL, self::DPPT_GENERATIONAL,
             self::HGSS_GENERATIONAL, self::BW_B2W2_GENERATIONAL, self::XY_GENERATIONAL,
             self::ORAS_GENERATIONAL, self::SM_USUM_GENERATIONAL, self::LGPE_GENERATIONAL,
-            self::SWSH_GENERATIONAL, self::LA_GENERATIONAL, self::SV_GENERATIONAL
+            self::SWSH_GENERATIONAL, self::BDSP_GENERATIONAL,self::LA_GENERATIONAL,
+            self::SV_GENERATIONAL
             => DexType::GENERATIONAL,
 
             /** Regional Dexes **/
@@ -159,8 +168,9 @@ enum GameDex: int
             self::HGSS_REGIONAL, self::BW_REGIONAL, self::B2W2_REGIONAL,
             self::XY_REGIONAL, self::ORAS_REGIONAL, self::SM_REGIONAL,
             self::USUM_REGIONAL, self::LGPE_REGIONAL, self::SWSH_REGIONAL,
-            self::SWSH_IOA_REGIONAL, self::SWSH_CT_REGIONAL, self::LA_REGIONAL,
-            self::SV_REGIONAL, self::SV_TM_REGIONAL, self::SV_ID_REGIONAL
+            self::SWSH_IOA_REGIONAL, self::SWSH_CT_REGIONAL, self::BDSP_REGIONAL,
+            self::LA_REGIONAL, self::SV_REGIONAL, self::SV_TM_REGIONAL,
+            self::SV_ID_REGIONAL
             => DexType::REGIONAL,
 
         };

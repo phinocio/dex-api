@@ -37,6 +37,8 @@ return [
         Game::LETS_GO_EEVEE->value => [GameDex::LGPE_REGIONAL->value, GameDex::LGPE_NATIONAL->value, GameDex::LGPE_GENERATIONAL->value],
         Game::SWORD->value => [GameDex::SWSH_REGIONAL->value, GameDex::SWSH_GENERATIONAL->value, GameDex::SWSH_IOA_REGIONAL->value, GameDex::SWSH_CT_REGIONAL->value],
         Game::SHIELD->value => [GameDex::SWSH_REGIONAL->value, GameDex::SWSH_GENERATIONAL->value, GameDex::SWSH_IOA_REGIONAL->value, GameDex::SWSH_CT_REGIONAL->value],
+        Game::BRILLIANT_DIAMOND->value => [GameDex::BDSP_REGIONAL->value, GameDex::BDSP_NATIONAL->value, GameDex::BDSP_GENERATIONAL->value],
+        Game::SHINING_PEARL->value => [GameDex::BDSP_REGIONAL->value, GameDex::BDSP_NATIONAL->value, GameDex::BDSP_GENERATIONAL->value],
         Game::LEGENDS_ARCEUS->value => [GameDex::LA_REGIONAL->value, GameDex::LA_GENERATIONAL->value],
         Game::SCARLET->value => [GameDex::SV_REGIONAL->value, GameDex::SV_NATIONAL->value, GameDex::SV_GENERATIONAL->value, GameDex::SV_TM_REGIONAL->value],
         Game::VIOLET->value => [GameDex::SV_REGIONAL->value, GameDex::SV_NATIONAL->value, GameDex::SV_GENERATIONAL->value],
