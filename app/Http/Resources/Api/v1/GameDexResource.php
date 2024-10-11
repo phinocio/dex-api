@@ -20,8 +20,8 @@ class GameDexResource extends JsonResource
         return [
             'name' => $this->name,
             'slug' => $this->slug,
-            'game' => GameResource::collection($this->whenLoaded('game')),
             'type' => $this->type,
+            'game' => GameResource::collection($this->whenLoaded('game')),
             'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
             'links' => [
                 'self' => route('v1:game-dexes:show', $this->slug),
