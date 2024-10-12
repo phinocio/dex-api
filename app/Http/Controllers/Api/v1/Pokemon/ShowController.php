@@ -10,6 +10,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Policies\Api\v1\PokemonPolicy;
 use App\Http\Controllers\Api\v1\ApiController;
 use App\Http\Resources\Api\v1\PokemonResource;
+use Spatie\QueryBuilder\AllowedInclude;
 
 class ShowController extends ApiController
 {
@@ -22,8 +23,8 @@ class ShowController extends ApiController
                 'games',
                 'generation',
                 'forms',
+                AllowedInclude::relationship('evolutions', 'evolvesFrom'),
             ])
-            ->with('evolvesFrom')
             ->firstOrFail();
 
         Gate::authorize('view', $pokemon);

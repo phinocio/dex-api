@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\v1\ApiController;
 use App\Http\Resources\Api\v1\PokemonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\AllowedInclude;
 
 class IndexController extends ApiController
 {
@@ -30,8 +31,8 @@ class IndexController extends ApiController
                 'generation',
                 'sprites',
                 'forms',
+                AllowedInclude::relationship('evolutions', 'evolvesFrom'),
             ])
-            ->with('evolvesFrom')
             ->orderBy('national_dex_number', 'asc')
             ->get();
 
