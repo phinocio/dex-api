@@ -45,10 +45,18 @@ class PokemonSeeder extends Seeder
            })->toArray(),
         );
 
-        $pokemon->each(function (mixed $pokemon) {
-            DB::table('pokemon')->where('id', $pokemon->value)->update([
-                'evolves_from' => PokemonEvolutions::evolvesFrom($pokemon)->value ?? null,
-            ]);
-        });
+        DB::table('pokemon')->upsert(
+            $pokemon->map(function (mixed $pokemon) {
+                return [
+                    'name' => $pokemon->name(),
+                    'slug' => $pokemon->slug(),
+                    'generation_id' => $pokemon->generation(),
+                    'national_dex_number' => $pokemon->value,
+                    'evolves_from' => PokemonEvolutions::evolvesFrom($pokemon)->value ?? null,
+                ];
+            })->toArray(),
+            ['slug'],
+            ['evolves_from'],
+        );
     }
 }
