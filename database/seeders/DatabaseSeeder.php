@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             Gen8DexesSeeder::class,
             Gen9DexesSeeder::class,
             GamePokemonSeeder::class,
-            SpriteSeeder::class,
+            HomeSpriteSeeder::class,
             FormSeeder::class,
             FormPokemonSeeder::class,
             GameGameDexSeeder::class,
