@@ -26,13 +26,13 @@ class Gen5DexesSeeder extends Seeder
             ...Gen5Pokemon::cases(),
         ])
             ->map(fn($pokemon) => [
-                'game_dex_id' => GameDex::BW_B2W2_NATIONAL,
+                'game_dex_id' => GameDex::GEN_5_NATIONAL,
                 'pokemon_id' => $pokemon->value,
             ])->toArray();
 
 
         $generationalDex = collect(Gen5Pokemon::cases())->map(fn(Gen5Pokemon $pokemon) => [
-            'game_dex_id' => GameDex::BW_B2W2_GENERATIONAL,
+            'game_dex_id' => GameDex::GEN_5_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 

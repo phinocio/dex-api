@@ -30,12 +30,12 @@ class Gen7DexesSeeder extends Seeder
             ...Gen7Pokemon::cases(),
         ])
             ->map(fn($pokemon) => [
-                'game_dex_id' => GameDex::SM_USUM_NATIONAL,
+                'game_dex_id' => GameDex::GEN_7_NATIONAL,
                 'pokemon_id' => $pokemon->value,
             ])->toArray();
 
         $generationalDex = collect(Gen7Pokemon::cases())->map(fn(Gen7Pokemon $pokemon) => [
-            'game_dex_id' => GameDex::DPPT_GENERATIONAL,
+            'game_dex_id' => GameDex::GEN_7_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 

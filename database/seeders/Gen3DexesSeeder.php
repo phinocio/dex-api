@@ -22,12 +22,12 @@ class Gen3DexesSeeder extends Seeder
             ...Gen3Pokemon::cases(),
         ])
             ->map(fn($pokemon) => [
-                'game_dex_id' => GameDex::RSE_NATIONAL,
+                'game_dex_id' => GameDex::GEN_3_NATIONAL,
                 'pokemon_id' => $pokemon->value,
             ])->toArray();
 
         $generationalDex = collect(Gen3Pokemon::cases())->map(fn(Gen3Pokemon $pokemon) => [
-            'game_dex_id' => GameDex::RSE_GENERATIONAL,
+            'game_dex_id' => GameDex::GEN_3_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 

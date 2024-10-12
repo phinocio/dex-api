@@ -18,7 +18,7 @@ class Gen1DexesSeeder extends Seeder
             ...Gen1Pokemon::cases(),
         ])
             ->map(fn(Gen1Pokemon $pokemon) => [
-                'game_dex_id' => GameDex::RBY_NATIONAL->value,
+                'game_dex_id' => GameDex::GEN_1_NATIONAL->value,
                 'pokemon_id' => $pokemon->value,
             ])->toArray();
 

@@ -16,7 +16,7 @@ class Gen9DexesSeeder extends Seeder
     {
 
         $generationalDex = collect(Gen9Pokemon::cases())->map(fn(Gen9Pokemon $pokemon) => [
-            'game_dex_id' => GameDex::SV_GENERATIONAL,
+            'game_dex_id' => GameDex::GEN_9_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 

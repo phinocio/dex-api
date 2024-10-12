@@ -6,173 +6,158 @@ namespace App\Enums;
 
 enum GameDex: int
 {
-    case RBY_NATIONAL = 1; // Red, Blue, Yellow
-    case GSC_GENERATIONAL = 2; // Gold, Silver, Crystal
-    case GSC_NATIONAL = 3; // Gold, Silver, Crystal
-    case RSE_REGIONAL = 4; // Ruby, Sapphire, Emerald
-    case RSE_NATIONAL = 5; // Ruby, Sapphire, Emerald
-    case RSE_GENERATIONAL = 6; // Ruby, Sapphire, Emerald
-    case DP_REGIONAL = 7; // Diamond, Pearl
-    case DPPT_HGSS_NATIONAL = 8; // Diamond, Pearl, Platinum, HeartGold, SoulSilver
-    case DPPT_GENERATIONAL = 9; // Diamond, Pearl, Platinum
-    case PT_REGIONAL = 10; // Platinum
-    case HGSS_REGIONAL = 11; // HeartGold, SoulSilver
-    case HGSS_GENERATIONAL = 12; // HeartGold, SoulSilver
-    case BW_REGIONAL = 13; // Black, White
-    case BW_B2W2_NATIONAL = 14; // Black, White, Black 2, White 2
-    case BW_B2W2_GENERATIONAL = 15; // Black, White, Black 2, White 2
-    case B2W2_REGIONAL = 16; // Black 2, White 2
-    case XY_REGIONAL = 17; // X, Y
-    case XY_ORAS_NATIONAL = 18; // X, Y, Omega Ruby, Alpha Sapphire
-    case XY_GENERATIONAL = 19; // X, Y
-    case ORAS_REGIONAL = 20; // Omega Ruby, Alpha Sapphire
-    case ORAS_GENERATIONAL = 21; // Omega Ruby, Alpha Sapphire
-    case SM_REGIONAL = 22; // Sun, Moon
-    case SM_USUM_NATIONAL = 23; // Sun, Moon, Ultra Sun, Ultra Moon
-    case SM_USUM_GENERATIONAL = 24; // Sun, Moon, Ultra Sun, Ultra Moon
-    case USUM_REGIONAL = 25; // Ultra Sun, Ultra Moon
-    case LGPE_REGIONAL = 26; // Let's Go, Pikachu! and Let's Go, Eevee!
-    case LGPE_NATIONAL = 27; // Let's Go, Pikachu! and Let's Go, Eevee!
-    case LGPE_GENERATIONAL = 28; // Let's Go, Pikachu! and Let's Go, Eevee!
-    case SWSH_REGIONAL = 29; // Sword, Shield
-    case SWSH_GENERATIONAL = 30; // Sword, Shield
+    case GEN_1_NATIONAL = 1; // Red, Blue, Yellow
+    case GEN_2_NATIONAL = 2; // Gold, Silver, Crystal
+    case GEN_3_NATIONAL = 3; // Ruby, Sapphire, Emerald
+    case GEN_4_NATIONAL = 4; // Diamond, Pearl, Platinum, HeartGold, SoulSilver, Brilliant Diamond, Shining Pearl
+    case GEN_5_NATIONAL = 5; // Black, White, Black 2, White 2
+    case GEN_6_NATIONAL = 6; // X, Y, Omega Ruby, Alpha Sapphire
+    case GEN_7_NATIONAL = 7; // Sun, Moon, Ultra Sun, Ultra Moon
+    case HOME_NATIONAL = 8; // Always All Pokemon
+
+    case GEN_1_GENERATIONAL = 9; // Red, Blue, Yellow, FireRed, LeafGreen, Let's Go, Pikachu!, Let's Go, Eevee!
+    case GEN_2_GENERATIONAL = 10; // Gold, Silver, Crystal, HeartGold, SoulSilver
+    case GEN_3_GENERATIONAL = 11; // Ruby, Sapphire, Emerald, Omega Ruby, Alpha Sapphire
+    case GEN_4_GENERATIONAL = 12; // Diamond, Pearl, Platinum, Brilliant Diamond, Shining Pearl, Legends: Arceus
+    case GEN_5_GENERATIONAL = 13; // Black, White, Black 2, White 2
+    case GEN_6_GENERATIONAL = 14; // X, Y
+    case GEN_7_GENERATIONAL = 15; // Sun, Moon, Ultra Sun, Ultra Moon
+    case GEN_8_GENERATIONAL = 16; // Sword, Shield
+    case GEN_9_GENERATIONAL = 17; // Scarlet, Violet
+
+    case RSE_REGIONAL = 18; // Ruby, Sapphire, Emerald
+    case FRLG_REGIONAL = 19; // Fire Red, Leaf Green
+    case DP_REGIONAL = 20; // Diamond, Pearl
+    case PT_REGIONAL = 21; // Platinum
+    case HGSS_REGIONAL = 22; // HeartGold, SoulSilver
+    case BW_REGIONAL = 23; // Black, White
+    case B2W2_REGIONAL = 24; // Black 2, White 2
+    case XY_REGIONAL = 25; // X, Y
+    case ORAS_REGIONAL = 26; // Omega Ruby, Alpha Sapphire
+    case SM_REGIONAL = 27; // Sun, Moon
+    case USUM_REGIONAL = 28; // Ultra Sun, Ultra Moon
+    case LGPE_REGIONAL = 29; // Let's Go, Pikachu! and Let's Go, Eevee!
+    case SWSH_REGIONAL = 30; // Sword, Shield
     case SWSH_IOA_REGIONAL = 31; // Isle of Armor
     case SWSH_CT_REGIONAL = 32; // Crown Tundra
     case BDSP_REGIONAL = 33; // Brilliant Diamond, Shining Pearl
-    case BDSP_NATIONAL = 34; // Brilliant Diamond, Shining Pearl
-    case BDSP_GENERATIONAL = 35; // Brilliant Diamond, Shining Pearl
-    case LA_REGIONAL = 36; // Legends: Arceus
-    case LA_GENERATIONAL = 37; // Legends: Arceus
-    case SV_REGIONAL = 38; // Scarlet, Violet
-    case SV_NATIONAL = 39; // Scarlet, Violet
-    case SV_GENERATIONAL = 40; // Scarlet, Violet
-    case SV_TM_REGIONAL = 41; // Teal Mask
-    case SV_ID_REGIONAL = 42; // Indigo Disk
+    case LA_REGIONAL = 34; // Legends: Arceus
+    case SV_REGIONAL = 35; // Scarlet, Violet
+    case SV_TM_REGIONAL = 36; // Teal Mask
+    case SV_ID_REGIONAL = 37; // Indigo Disk
 
     public function name(): string
     {
         return match ($this) {
-            self::RBY_NATIONAL => 'RBY National',
-            self::GSC_GENERATIONAL => 'GSC Generational',
-            self::GSC_NATIONAL => 'GSC National',
-            self::RSE_REGIONAL => 'RSE Regional',
-            self::RSE_NATIONAL => 'RSE National',
-            self::RSE_GENERATIONAL => 'RSE Generational',
-            self::DP_REGIONAL => 'DP Regional',
-            self::DPPT_HGSS_NATIONAL => 'DPPT_HGSS National',
-            self::DPPT_GENERATIONAL => 'DPPT Generational',
-            self::PT_REGIONAL => 'Pt Regional',
-            self::HGSS_REGIONAL => 'HGSS Regional',
-            self::HGSS_GENERATIONAL => 'HGSS Generational',
-            self::BW_REGIONAL => 'BW Regional',
-            self::BW_B2W2_NATIONAL => 'BW B2W2 National',
-            self::BW_B2W2_GENERATIONAL => 'BW B2W2 Generational',
-            self::B2W2_REGIONAL => 'B2W2 Regional',
-            self::XY_REGIONAL => 'XY Regional',
-            self::XY_ORAS_NATIONAL => 'XY_ORAS National',
-            self::XY_GENERATIONAL => 'XY Generational',
-            self::ORAS_REGIONAL => 'ORAS Regional',
-            self::ORAS_GENERATIONAL => 'ORAS Generational',
-            self::SM_REGIONAL => 'SM Regional',
-            self::SM_USUM_NATIONAL => 'SM USUM National',
-            self::SM_USUM_GENERATIONAL => 'SM USUM Generational',
-            self::USUM_REGIONAL => 'USUM Regional',
-            self::LGPE_REGIONAL => 'LGPE Regional',
-            self::LGPE_NATIONAL => 'LGPE National',
-            self::LGPE_GENERATIONAL => 'LGPE Generational',
-            self::SWSH_REGIONAL => 'SWSH Regional',
-            self::SWSH_GENERATIONAL => 'SWSH Generational',
-            self::SWSH_IOA_REGIONAL => 'SWSH Isle of Armor Regional',
-            self::SWSH_CT_REGIONAL => 'SWSH Crown Tundra Regional',
-            self::BDSP_REGIONAL => 'BDSP Regional',
-            self::BDSP_NATIONAL => 'BDSP National',
-            self::BDSP_GENERATIONAL => 'BDSP Generational',
-            self::LA_REGIONAL => 'LA Regional',
-            self::LA_GENERATIONAL => 'LA Generational',
-            self::SV_REGIONAL => 'SV Regional',
-            self::SV_NATIONAL => 'SV National',
-            self::SV_GENERATIONAL => 'SV Generational',
-            self::SV_TM_REGIONAL => 'SV Teal Mask Regional',
-            self::SV_ID_REGIONAL => 'SV Indigo Disk Regional',
+            self::GEN_1_NATIONAL => 'Gen 1 National',
+            self::GEN_2_NATIONAL => 'Gen 2 National',
+            self::GEN_3_NATIONAL => 'Gen 3 National',
+            self::GEN_4_NATIONAL => 'Gen 4 National',
+            self::GEN_5_NATIONAL => 'Gen 5 National',
+            self::GEN_6_NATIONAL => 'Gen 6 National',
+            self::GEN_7_NATIONAL => 'Gen 7 National',
+            self::HOME_NATIONAL => 'Home National',
+
+            self::GEN_1_GENERATIONAL => 'Gen 1 Generational',
+            self::GEN_2_GENERATIONAL => 'Gen 2 Generational',
+            self::GEN_3_GENERATIONAL => 'Gen 3 Generational',
+            self::GEN_4_GENERATIONAL => 'Gen 4 Generational',
+            self::GEN_5_GENERATIONAL => 'Gen 5 Generational',
+            self::GEN_6_GENERATIONAL => 'Gen 6 Generational',
+            self::GEN_7_GENERATIONAL => 'Gen 7 Generational',
+            self::GEN_8_GENERATIONAL => 'Gen 8 Generational',
+            self::GEN_9_GENERATIONAL => 'Gen 9 Generational',
+
+            self::RSE_REGIONAL => 'Hoenn Regional',
+            self::FRLG_REGIONAL => 'Kanto (FRLG) Regional',
+            self::DP_REGIONAL => 'Sinnoh Regional',
+            self::PT_REGIONAL => 'Sinnoh (Pt) Regional',
+            self::HGSS_REGIONAL => 'Johto (HGSS) Regional',
+            self::BW_REGIONAL => 'Unova Regional',
+            self::B2W2_REGIONAL => 'Unova (B2W2) Regional',
+            self::XY_REGIONAL => 'Kalos Regional',
+            self::ORAS_REGIONAL => 'Hoenn (ORAS) Regional',
+            self::SM_REGIONAL => 'Alola Regional',
+            self::USUM_REGIONAL => 'Alola (USUM) Regional',
+            self::LGPE_REGIONAL => 'Kanto (LGPE) Regional',
+            self::SWSH_REGIONAL => 'Galar Regional',
+            self::SWSH_IOA_REGIONAL => 'Isle of Armor Regional',
+            self::SWSH_CT_REGIONAL => 'Crown Tundra Regional',
+            self::BDSP_REGIONAL => 'Sinnoh (BDSP) Regional',
+            self::LA_REGIONAL => 'Sinnoh (LA) Regional',
+            self::SV_REGIONAL => 'Paldea Regional',
+            self::SV_TM_REGIONAL => 'Kitakami Regional',
+            self::SV_ID_REGIONAL => 'Blueberry Regional',
         };
     }
 
     public function slug(): string
     {
         return match ($this) {
-            self::RBY_NATIONAL => 'rby-national',
-            self::GSC_GENERATIONAL => 'gsc-generational',
-            self::GSC_NATIONAL => 'gsc-national',
-            self::RSE_REGIONAL => 'rse-regional',
-            self::RSE_NATIONAL => 'rse-national',
-            self::RSE_GENERATIONAL => 'rse-generational',
-            self::DP_REGIONAL => 'dp-regional',
-            self::DPPT_HGSS_NATIONAL => 'dppt-hgss-national',
-            self::DPPT_GENERATIONAL => 'dppt-generational',
-            self::PT_REGIONAL => 'pt-regional',
-            self::HGSS_REGIONAL => 'hgss-regional',
-            self::HGSS_GENERATIONAL => 'hgss-generational',
-            self::BW_REGIONAL => 'bw-regional',
-            self::BW_B2W2_NATIONAL => 'bw-b2w2-national',
-            self::BW_B2W2_GENERATIONAL => 'bw-b2w2-generational',
-            self::B2W2_REGIONAL => 'b2w2-regional',
-            self::XY_REGIONAL => 'xy-regional',
-            self::XY_ORAS_NATIONAL => 'xy-oras-national',
-            self::XY_GENERATIONAL => 'xy-generational',
-            self::ORAS_REGIONAL => 'oras-regional',
-            self::ORAS_GENERATIONAL => 'oras-generational',
-            self::SM_REGIONAL => 'sm-regional',
-            self::SM_USUM_NATIONAL => 'sm-usum-national',
-            self::SM_USUM_GENERATIONAL => 'sm-usum-generational',
-            self::USUM_REGIONAL => 'usum-regional',
-            self::LGPE_REGIONAL => 'lgpe-regional',
-            self::LGPE_NATIONAL => 'lgpe-national',
-            self::LGPE_GENERATIONAL => 'lgpe-generational',
-            self::SWSH_REGIONAL => 'swhs-regional',
-            self::SWSH_GENERATIONAL => 'swhs-generational',
-            self::SWSH_IOA_REGIONAL => 'swhs-ioa-regional',
-            self::SWSH_CT_REGIONAL => 'swhs-ct-regional',
-            self::BDSP_REGIONAL => 'bdsp-regional',
-            self::BDSP_NATIONAL => 'bdsp-national',
-            self::BDSP_GENERATIONAL => 'bdsp-generational',
-            self::LA_REGIONAL => 'la-regional',
-            self::LA_GENERATIONAL => 'la-generational',
-            self::SV_REGIONAL => 'sv-regional',
-            self::SV_NATIONAL => 'sv-national',
-            self::SV_GENERATIONAL => 'sv-generational',
-            self::SV_TM_REGIONAL => 'sv-tm-regional',
-            self::SV_ID_REGIONAL => 'sv-id-regional',
+            self::GEN_1_NATIONAL => 'gen-1-national',
+            self::GEN_2_NATIONAL => 'gen-2-national',
+            self::GEN_3_NATIONAL => 'gen-3-national',
+            self::GEN_4_NATIONAL => 'gen-4-national',
+            self::GEN_5_NATIONAL => 'gen-5-national',
+            self::GEN_6_NATIONAL => 'gen-6-national',
+            self::GEN_7_NATIONAL => 'gen-7-national',
+            self::HOME_NATIONAL => 'home-national',
+
+            self::GEN_1_GENERATIONAL => 'gen-1-generational',
+            self::GEN_2_GENERATIONAL => 'gen-2-generational',
+            self::GEN_3_GENERATIONAL => 'gen-3-generational',
+            self::GEN_4_GENERATIONAL => 'gen-4-generational',
+            self::GEN_5_GENERATIONAL => 'gen-5-generational',
+            self::GEN_6_GENERATIONAL => 'gen-6-generational',
+            self::GEN_7_GENERATIONAL => 'gen-7-generational',
+            self::GEN_8_GENERATIONAL => 'gen-8-generational',
+            self::GEN_9_GENERATIONAL => 'gen-9-generational',
+
+            self::RSE_REGIONAL => 'hoenn-regional',
+            self::FRLG_REGIONAL => 'kanto-frlg-regional',
+            self::DP_REGIONAL => 'sinnoh-regional',
+            self::PT_REGIONAL => 'sinnohpt-regional',
+            self::HGSS_REGIONAL => 'johto-hgss-regional',
+            self::BW_REGIONAL => 'unova-regional',
+            self::B2W2_REGIONAL => 'unova-b2w2-regional',
+            self::XY_REGIONAL => 'kalos-regional',
+            self::ORAS_REGIONAL => 'hoenn-oras-regional',
+            self::SM_REGIONAL => 'alola-regional',
+            self::USUM_REGIONAL => 'alolausum-regional',
+            self::LGPE_REGIONAL => 'kanto-lgpe-regional',
+            self::SWSH_REGIONAL => 'galar-regional',
+            self::SWSH_IOA_REGIONAL => 'isle-of-armor-regional',
+            self::SWSH_CT_REGIONAL => 'crown-tundra-regional',
+            self::BDSP_REGIONAL => 'sinnoh-bdsp-regional',
+            self::LA_REGIONAL => 'sinnoh-la-regional',
+            self::SV_REGIONAL => 'paldea-regional',
+            self::SV_TM_REGIONAL => 'kitakami-regional',
+            self::SV_ID_REGIONAL => 'blueberry-regional',
         };
     }
 
-    public function type(): DexType
+    public function type(): string
     {
         return match ($this) {
-            /** National Dexes **/
-            self::RBY_NATIONAL, self::GSC_NATIONAL, self::RSE_NATIONAL,
-            self::DPPT_HGSS_NATIONAL, self::BW_B2W2_NATIONAL,
-            self::XY_ORAS_NATIONAL,  self::SM_USUM_NATIONAL,
-            self::LGPE_NATIONAL, self::BDSP_NATIONAL,self::SV_NATIONAL
-            => DexType::NATIONAL,
 
-            /** Generational Dexes **/
-            self::GSC_GENERATIONAL, self::RSE_GENERATIONAL, self::DPPT_GENERATIONAL,
-            self::HGSS_GENERATIONAL, self::BW_B2W2_GENERATIONAL, self::XY_GENERATIONAL,
-            self::ORAS_GENERATIONAL, self::SM_USUM_GENERATIONAL, self::LGPE_GENERATIONAL,
-            self::SWSH_GENERATIONAL, self::BDSP_GENERATIONAL,self::LA_GENERATIONAL,
-            self::SV_GENERATIONAL
-            => DexType::GENERATIONAL,
+            self::GEN_1_NATIONAL, self::GEN_2_NATIONAL, self::GEN_3_NATIONAL,
+            self::GEN_4_NATIONAL, self::GEN_5_NATIONAL, self::GEN_6_NATIONAL,
+            self::GEN_7_NATIONAL, self::HOME_NATIONAL,
+            => DexType::NATIONAL->value,
 
-            /** Regional Dexes **/
-            self::RSE_REGIONAL, self::DP_REGIONAL, self::PT_REGIONAL,
-            self::HGSS_REGIONAL, self::BW_REGIONAL, self::B2W2_REGIONAL,
-            self::XY_REGIONAL, self::ORAS_REGIONAL, self::SM_REGIONAL,
-            self::USUM_REGIONAL, self::LGPE_REGIONAL, self::SWSH_REGIONAL,
-            self::SWSH_IOA_REGIONAL, self::SWSH_CT_REGIONAL, self::BDSP_REGIONAL,
-            self::LA_REGIONAL, self::SV_REGIONAL, self::SV_TM_REGIONAL,
-            self::SV_ID_REGIONAL
-            => DexType::REGIONAL,
+            self::GEN_1_GENERATIONAL, self::GEN_2_GENERATIONAL, self::GEN_3_GENERATIONAL,
+            self::GEN_4_GENERATIONAL, self::GEN_5_GENERATIONAL, self::GEN_6_GENERATIONAL,
+            self::GEN_7_GENERATIONAL, self::GEN_8_GENERATIONAL, self::GEN_9_GENERATIONAL,
+            => DexType::GENERATIONAL->value,
 
+            self::RSE_REGIONAL, self::FRLG_REGIONAL,self::DP_REGIONAL,
+            self::PT_REGIONAL, self::HGSS_REGIONAL, self::BW_REGIONAL,
+            self::B2W2_REGIONAL, self::XY_REGIONAL, self::ORAS_REGIONAL,
+            self::SM_REGIONAL, self::USUM_REGIONAL, self::LGPE_REGIONAL,
+            self::SWSH_REGIONAL, self::SWSH_IOA_REGIONAL, self::SWSH_CT_REGIONAL,
+            self::BDSP_REGIONAL, self::LA_REGIONAL, self::SV_REGIONAL,
+            self::SV_TM_REGIONAL, self::SV_ID_REGIONAL,
+            => DexType::REGIONAL->value,
         };
     }
 }

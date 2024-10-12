@@ -15,6 +15,13 @@ class GenerationSeeder extends Seeder
     {
         DB::table('generations')->insert([
             [
+                'id' => Generation::HOME,
+                'name' => Generation::HOME->name(),
+                'slug' => Generation::HOME->slug(),
+                'new_pokemon' => 0,
+                'total_pokemon' => 1025,
+            ],
+            [
                 'id' => Generation::I,
                 'name' => Generation::I->name(),
                 'slug' => Generation::I->slug(),

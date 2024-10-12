@@ -6,19 +6,21 @@ namespace App\Enums;
 
 enum Generation: int
 {
-    case I = 1;
-    case II = 2;
-    case III = 3;
-    case IV = 4;
-    case V = 5;
-    case VI = 6;
-    case VII = 7;
-    case VIII = 8;
-    case IX = 9;
+    case HOME = 1;
+    case I = 2;
+    case II = 3;
+    case III = 4;
+    case IV = 5;
+    case V = 6;
+    case VI = 7;
+    case VII = 8;
+    case VIII = 9;
+    case IX = 10;
 
     public function name(): string
     {
         return match ($this) {
+            self::HOME => 'Home',
             self::I => 'Generation I',
             self::II => 'Generation II',
             self::III => 'Generation III',
@@ -34,6 +36,7 @@ enum Generation: int
     public function slug(): string
     {
         return match ($this) {
+            self::HOME => 'home',
             self::I => 'generation-i',
             self::II => 'generation-ii',
             self::III => 'generation-iii',

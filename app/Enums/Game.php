@@ -6,47 +6,49 @@ namespace App\Enums;
 
 enum Game: int
 {
-    case RED = 1;
-    case BLUE = 2;
-    case YELLOW = 3;
-    case GOLD = 4;
-    case SILVER = 5;
-    case CRYSTAL = 6;
-    case RUBY = 7;
-    case SAPPHIRE = 8;
-    case EMERALD = 9;
-    case FIRE_RED = 10;
-    case LEAF_GREEN = 11;
-    case DIAMOND = 12;
-    case PEARL = 13;
-    case PLATINUM = 14;
-    case HEART_GOLD = 15;
-    case SOUL_SILVER = 16;
-    case BLACK = 17;
-    case WHITE = 18;
-    case BLACK_2 = 19;
-    case WHITE_2 = 20;
-    case X = 21;
-    case Y = 22;
-    case OMEGA_RUBY = 23;
-    case ALPHA_SAPPHIRE = 24;
-    case SUN = 25;
-    case MOON = 26;
-    case ULTRA_SUN = 27;
-    case ULTRA_MOON = 28;
-    case LETS_GO_PIKACHU = 29;
-    case LETS_GO_EEVEE = 30;
-    case SWORD = 31;
-    case SHIELD = 32;
-    case BRILLIANT_DIAMOND = 33;
-    case SHINING_PEARL = 34;
-    case LEGENDS_ARCEUS = 35;
-    case SCARLET = 36;
-    case VIOLET = 37;
+    case HOME = 1;
+    case RED = 2;
+    case BLUE = 3;
+    case YELLOW = 4;
+    case GOLD = 5;
+    case SILVER = 6;
+    case CRYSTAL = 7;
+    case RUBY = 8;
+    case SAPPHIRE = 9;
+    case EMERALD = 10;
+    case FIRE_RED = 11;
+    case LEAF_GREEN = 12;
+    case DIAMOND = 13;
+    case PEARL = 14;
+    case PLATINUM = 15;
+    case HEART_GOLD = 16;
+    case SOUL_SILVER = 17;
+    case BLACK = 18;
+    case WHITE = 19;
+    case BLACK_2 = 20;
+    case WHITE_2 = 21;
+    case X = 22;
+    case Y = 23;
+    case OMEGA_RUBY = 24;
+    case ALPHA_SAPPHIRE = 25;
+    case SUN = 26;
+    case MOON = 27;
+    case ULTRA_SUN = 28;
+    case ULTRA_MOON = 29;
+    case LETS_GO_PIKACHU = 30;
+    case LETS_GO_EEVEE = 31;
+    case SWORD = 32;
+    case SHIELD = 33;
+    case BRILLIANT_DIAMOND = 34;
+    case SHINING_PEARL = 35;
+    case LEGENDS_ARCEUS = 36;
+    case SCARLET = 37;
+    case VIOLET = 38;
 
     public function generation(): Generation
     {
         return match ($this) {
+            Game::HOME => Generation::HOME,
             Game::RED, Game::BLUE, Game::YELLOW => Generation::I,
             Game::GOLD, Game::SILVER, Game::CRYSTAL => Generation::II,
             Game::RUBY, Game::SAPPHIRE, Game::EMERALD, Game::FIRE_RED, Game::LEAF_GREEN => Generation::III,
@@ -62,6 +64,7 @@ enum Game: int
     public function name(): string
     {
         return match ($this) {
+            self::HOME => 'Home',
             self::RED => 'Red',
             self::BLUE => 'Blue',
             self::YELLOW => 'Yellow',
@@ -105,6 +108,7 @@ enum Game: int
     public function slug(): string
     {
         return match ($this) {
+            self::HOME => 'home',
             self::RED => 'red',
             self::BLUE => 'blue',
             self::YELLOW => 'yellow',

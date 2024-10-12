@@ -28,23 +28,17 @@ class Gen6DexesSeeder extends Seeder
             ...Gen6Pokemon::cases(),
         ])
             ->map(fn($pokemon) => [
-                'game_dex_id' => GameDex::XY_ORAS_NATIONAL,
+                'game_dex_id' => GameDex::GEN_6_NATIONAL,
                 'pokemon_id' => $pokemon->value,
             ])->toArray();
 
 
         $generationalDexXY = collect(Gen6Pokemon::cases())->map(fn(Gen6Pokemon $pokemon) => [
-            'game_dex_id' => GameDex::DPPT_GENERATIONAL,
-            'pokemon_id' => $pokemon->value,
-        ])->toArray();
-
-        $generationalDexORAS = collect(Gen3Pokemon::cases())->map(fn(Gen3Pokemon $pokemon) => [
-            'game_dex_id' => GameDex::DPPT_GENERATIONAL,
+            'game_dex_id' => GameDex::GEN_6_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 
         DB::table('game_dex_pokemon')->insert($nationalDexXYORAS);
         DB::table('game_dex_pokemon')->insert($generationalDexXY);
-        DB::table('game_dex_pokemon')->insert($generationalDexORAS);
     }
 }
