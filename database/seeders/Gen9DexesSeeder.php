@@ -15,7 +15,7 @@ class Gen9DexesSeeder extends Seeder
     public function run(): void
     {
 
-        $generationalDex = collect(Gen9Pokemon::cases())->map(fn($pokemon) => [
+        $generationalDex = collect(Gen9Pokemon::cases())->map(fn(Gen9Pokemon $pokemon) => [
             'game_dex_id' => GameDex::SV_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();

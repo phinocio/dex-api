@@ -30,17 +30,17 @@ class Gen8DexesSeeder extends Seeder
                 'pokemon_id' => $pokemon->value,
             ])->toArray();
 
-        $generationalDexSWSH = collect(Gen8Pokemon::cases())->map(fn($pokemon) => [
+        $generationalDexSWSH = collect(Gen8Pokemon::cases())->map(fn(Gen8Pokemon $pokemon) => [
             'game_dex_id' => GameDex::SWSH_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 
-        $generationalDexBDSP = collect(Gen4Pokemon::cases())->map(fn($pokemon) => [
+        $generationalDexBDSP = collect(Gen4Pokemon::cases())->map(fn(Gen4Pokemon $pokemon) => [
             'game_dex_id' => GameDex::BDSP_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 
-        $generationalDexLA = collect(Gen4Pokemon::cases())->map(fn($pokemon) => [
+        $generationalDexLA = collect(Gen4Pokemon::cases())->map(fn(Gen4Pokemon $pokemon) => [
             'game_dex_id' => GameDex::LA_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();

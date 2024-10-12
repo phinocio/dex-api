@@ -26,7 +26,7 @@ class Gen3DexesSeeder extends Seeder
                 'pokemon_id' => $pokemon->value,
             ])->toArray();
 
-        $generationalDex = collect(Gen3Pokemon::cases())->map(fn($pokemon) => [
+        $generationalDex = collect(Gen3Pokemon::cases())->map(fn(Gen3Pokemon $pokemon) => [
             'game_dex_id' => GameDex::RSE_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();

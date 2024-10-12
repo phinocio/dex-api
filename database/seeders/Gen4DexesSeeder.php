@@ -29,12 +29,12 @@ class Gen4DexesSeeder extends Seeder
             ])->toArray();
 
 
-        $generationalDexDPPT = collect(Gen4Pokemon::cases())->map(fn($pokemon) => [
+        $generationalDexDPPT = collect(Gen4Pokemon::cases())->map(fn(Gen4Pokemon $pokemon) => [
             'game_dex_id' => GameDex::DPPT_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 
-        $generationalDexHGSS = collect(Gen2Pokemon::cases())->map(fn($pokemon) => [
+        $generationalDexHGSS = collect(Gen2Pokemon::cases())->map(fn(Gen2Pokemon $pokemon) => [
             'game_dex_id' => GameDex::DPPT_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
