@@ -23,6 +23,7 @@ class IndexController extends ApiController
         $generations = QueryBuilder::for(Generation::class)
             ->allowedIncludes([
                 'pokemon',
+                'games.gameDexes',
             ])
             ->with('games')
             ->get();

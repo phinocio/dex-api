@@ -20,6 +20,7 @@ class ShowController extends ApiController
         $generation = QueryBuilder::for(Generation::where('slug', $param))
             ->allowedIncludes([
                 'pokemon',
+                'games.gameDexes',
             ])
             ->with('games')
             ->firstOrFail();
