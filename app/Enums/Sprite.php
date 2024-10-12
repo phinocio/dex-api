@@ -40,7 +40,7 @@ enum Sprite: string
         };
     }
 
-    public function getShinyBaseUrl(): string
+    public function getShinyBaseUrl(): string|null
     {
         return match ($this) {
             self::GOLD, self::SILVER, self::CRYSTAL => "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/{$this->value}/transparent/shiny",

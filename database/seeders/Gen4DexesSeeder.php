@@ -17,7 +17,7 @@ class Gen4DexesSeeder extends Seeder
     /** Run the database seeds. */
     public function run(): void
     {
-        $nationalDexDPPTHGSS = collect([
+        $nationalDex = collect([
             ...Gen1Pokemon::cases(),
             ...Gen2Pokemon::cases(),
             ...Gen3Pokemon::cases(),
@@ -29,12 +29,12 @@ class Gen4DexesSeeder extends Seeder
             ])->toArray();
 
 
-        $generationalDexDPPT = collect(Gen4Pokemon::cases())->map(fn(Gen4Pokemon $pokemon) => [
+        $generationalDex = collect(Gen4Pokemon::cases())->map(fn(Gen4Pokemon $pokemon) => [
             'game_dex_id' => GameDex::GEN_4_GENERATIONAL,
             'pokemon_id' => $pokemon->value,
         ])->toArray();
 
-        DB::table('game_dex_pokemon')->insert($nationalDexDPPTHGSS);
-        DB::table('game_dex_pokemon')->insert($generationalDexDPPT);
+        DB::table('game_dex_pokemon')->insert($nationalDex);
+        DB::table('game_dex_pokemon')->insert($generationalDex);
     }
 }
