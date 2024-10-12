@@ -103,58 +103,9 @@ enum Gen8Pokemon: int
     case OVERQWIL = 904;
     case ENAMORUS = 905;
 
-    public function evolvesFrom(): self|Gen1Pokemon|Gen2Pokemon|Gen3Pokemon|Gen5Pokemon|null
+    public function generation(): Generation
     {
-        return match ($this) {
-            self::THWACKEY => self::GROOKEY,
-            self::RILLABOOM => self::THWACKEY,
-            self::RABOOT => self::SCORBUNNY,
-            self::CINDERACE => self::RABOOT,
-            self::DRIZZILE => self::SOBBLE,
-            self::INTELEON => self::DRIZZILE,
-            self::GREEDENT => self::SKWOVET,
-            self::CORVISQUIRE => self::ROOKIDEE,
-            self::CORVIKNIGHT => self::CORVISQUIRE,
-            self::DOTLER => self::BLIPBUG,
-            self::ORBEETLE => self::DOTLER,
-            self::THIEVUL => self::NICKIT,
-            self::ELDEGOSS => self::GOSSIFLEUR,
-            self::DUBWOOL => self::WOOLOO,
-            self::DREDNAW => self::CHEWTLE,
-            self::BOLTUND => self::YAMPER,
-            self::CARKOL => self::ROLYCOLY,
-            self::COALOSSAL => self::CARKOL,
-            self::FLAPPLE => self::APPLIN,
-            self::APPLETUN => self::APPLIN,
-            self::SANDACONDA => self::SILICOBRA,
-            self::BARRASKEWDA => self::ARROKUDA,
-            self::TOXTRICITY => self::TOXEL,
-            self::CENTISKORCH => self::SIZZLIPEDE,
-            self::GRAPPLOCT => self::CLOBBOPUS,
-            self::POLTEAGEIST => self::SINISTEA,
-            self::HATTREM => self::HATENNA,
-            self::HATTERENE => self::HATTREM,
-            self::MORGREM => self::IMPIDIMP,
-            self::GRIMMSNARL => self::MORGREM,
-            self::OBSTAGOON => Gen3Pokemon::LINOONE,
-            self::PERRSERKER => Gen1Pokemon::MEOWTH,
-            self::SIRFETCHD => Gen1Pokemon::FARFETCHD,
-            self::MR_RIME => Gen1Pokemon::MR_MIME,
-            self::RUNERIGUS => Gen5Pokemon::YAMASK,
-            self::ALCREMIE => self::MILCERY,
-            self::FROSMOTH => self::SNOM,
-            self::COPPERAJAH => self::CUFANT,
-            self::DRAKLOAK => self::DREEPY,
-            self::DRAGAPULT => self::DRAKLOAK,
-            self::URSHIFU => self::KUBFU,
-            self::WYRDEER => Gen2Pokemon::STANTLER,
-            self::KLEAVOR => Gen1Pokemon::SCYTHER,
-            self::URSALUNA => Gen2Pokemon::URSARING,
-            self::BASCULEGION => Gen5Pokemon::BASCULIN,
-            self::SNEASLER => Gen2Pokemon::SNEASEL,
-            self::OVERQWIL => Gen2Pokemon::QWILFISH,
-            default => $this,
-        };
+        return Generation::VIII;
     }
 
     public function name(): string

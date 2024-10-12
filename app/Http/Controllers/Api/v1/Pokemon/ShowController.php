@@ -21,7 +21,9 @@ class ShowController extends ApiController
             ->allowedIncludes([
                 'games',
                 'generation',
+                'forms',
             ])
+            ->with('evolvesFrom')
             ->firstOrFail();
 
         Gate::authorize('view', $pokemon);

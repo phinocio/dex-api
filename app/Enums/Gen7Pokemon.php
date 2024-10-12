@@ -95,44 +95,9 @@ enum Gen7Pokemon: int
     case MELTAN = 808;
     case MELMETAL = 809;
 
-    public function evolvesFrom(): self|null
+    public function generation(): Generation
     {
-        return match ($this) {
-            self::DARTRIX => self::ROWLET,
-            self::DECIDUEYE => self::DARTRIX,
-            self::TORRACAT => self::LITTEN,
-            self::INCINEROAR => self::TORRACAT,
-            self::BRIONNE => self::POPPLIO,
-            self::PRIMARINA => self::BRIONNE,
-            self::TRUMBEAK => self::PIKIPEK,
-            self::TOUCANNON => self::TRUMBEAK,
-            self::GUMSHOOS => self::YUNGOOS,
-            self::CHARJABUG => self::GRUBBIN,
-            self::VIKAVOLT => self::CHARJABUG,
-            self::CRABOMINABLE => self::CRABRAWLER,
-            self::RIBOMBEE => self::CUTIEFLY,
-            self::LYCANROC => self::ROCKRUFF,
-            self::TOXAPEX => self::MAREANIE,
-            self::MUDSDALE => self::MUDBRAY,
-            self::ARAQUANID => self::DEWPIDER,
-            self::LURANTIS => self::FOMANTIS,
-            self::SHIINOTIC => self::MORELULL,
-            self::SALAZZLE => self::SALANDIT,
-            self::BEWEAR => self::STUFFUL,
-            self::STEENEE => self::BOUNSWEET,
-            self::TSAREENA => self::STEENEE,
-            self::GOLISOPOD => self::WIMPOD,
-            self::PALOSSAND => self::SANDYGAST,
-            self::SILVALLY => self::TYPE_NULL,
-            self::HAKAMO_O => self::JANGMO_O,
-            self::KOMMO_O => self::HAKAMO_O,
-            self::COSMOEM => self::COSMOG,
-            self::SOLGALEO => self::COSMOEM,
-            self::LUNALA => self::SOLGALEO,
-            self::NAGANADEL => self::POIPOLE,
-            self::MELMETAL => self::MELTAN,
-            default => null,
-        };
+        return Generation::VII;
     }
 
     public function name(): string

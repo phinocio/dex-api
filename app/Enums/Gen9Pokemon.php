@@ -127,59 +127,9 @@ enum Gen9Pokemon: int
     case TERAPAGOS = 1024;
     case PECHARUNT = 1025;
 
-    public function evolvesFrom(): self|Gen1Pokemon|Gen2Pokemon|Gen5Pokemon|Gen8Pokemon|null
+    public function generation(): Generation
     {
-        return match ($this) {
-            self::FLORAGATO => self::SPRIGATITO,
-            self::MEOWSCARADA => self::FLORAGATO,
-            self::CROCALOR => self::FUECOCO,
-            self::SKELEDIRGE => self::CROCALOR,
-            self::QUAXWELL => self::QUAXLY,
-            self::QUAQUAVAL => self::QUAXWELL,
-            self::OINKOLOGNE => self::LECHONK,
-            self::SPIDOPS => self::TAROUNTULA,
-            self::LOKIX => self::NYMBLE,
-            self::PAWMO => self::PAWMI,
-            self::PAWMOT => self::PAWMO,
-            self::MAUSHOLD => self::TANDEMAUS,
-            self::DACHSBUN => self::FIDOUGH,
-            self::DOLLIV => self::SMOLIV,
-            self::ARBOLIVA => self::DOLLIV,
-            self::NACLSTACK => self::NACLI,
-            self::GARGANACL => self::NACLSTACK,
-            self::ARMAROUGE => self::CHARCADET,
-            self::CERULEDGE => self::CHARCADET,
-            self::BELLIBOLT => self::TADBULB,
-            self::KILOWATTREL => self::WATTREL,
-            self::MABOSSTIFF => self::MASCHIFF,
-            self::GRAFAIAI => self::SHROODLE,
-            self::BRAMBLEGHAST => self::BRAMBLIN,
-            self::TOEDSCRUEL => self::TOEDSCOOL,
-            self::SCOVILLAIN => self::CAPSAKID,
-            self::RABSCA => self::RELLOR,
-            self::ESPATHRA => self::FLITTLE,
-            self::TINKATUFF => self::TINKATINK,
-            self::TINKATON => self::TINKATUFF,
-            self::WUGTRIO => self::WIGLETT,
-            self::PALAFIN => self::FINIZEN,
-            self::REVAVROOM => self::VAROOM,
-            self::GLIMMORA => self::GLIMMET,
-            self::HOUNDSTONE => self::GREAVARD,
-            self::CETITAN => self::CETODDLE,
-            self::ANNIHILAPE => Gen1Pokemon::PRIMEAPE,
-            self::CLODSIRE => Gen2Pokemon::WOOPER,
-            self::FARIGIRAF => Gen2Pokemon::GIRAFARIG,
-            self::DUDUNSPARCE => Gen2Pokemon::DUNSPARCE,
-            self::KINGAMBIT => Gen5Pokemon::BISHARP,
-            self::ARCTIBAX => self::FRIGIBAX,
-            self::BAXCALIBUR => self::ARCTIBAX,
-            self::GHOLDENGO => self::GIMMIGHOUL,
-            self::DIPPLIN => Gen8Pokemon::APPLIN,
-            self::SINISTCHA => self::POLCHAGEIST,
-            self::ARCHALUDON => Gen8Pokemon::DURALUDON,
-            self::HYDRAPPLE => self::DIPPLIN,
-            default => null,
-        };
+        return Generation::IX;
     }
 
     public function name(): string

@@ -79,46 +79,9 @@ enum Gen6Pokemon: int
     case HOOPA = 720;
     case VOLCANION = 721;
 
-    public function evolvesFrom(): self|Gen1Pokemon|null
+    public function generation(): Generation
     {
-        return match ($this) {
-            self::QUILLADIN => self::CHESPIN,
-            self::CHESNAUGHT => self::QUILLADIN,
-            self::BRAIXEN => self::FENNEKIN,
-            self::DELPHOX => self::BRAIXEN,
-            self::FROGADIER => self::FROAKIE,
-            self::GRENINJA => self::FROGADIER,
-            self::DIGGERSBY => self::BUNNELBY,
-            self::FLETCHINDER => self::FLETCHLING,
-            self::TALONFLAME => self::FLETCHINDER,
-            self::SPEWPA => self::SCATTERBUG,
-            self::VIVILLON => self::SPEWPA,
-            self::PYROAR => self::LITLEO,
-            self::FLOETTE => self::FLABEBE,
-            self::FLORGES => self::FLOETTE,
-            self::GOGOAT => self::SKIDDO,
-            self::PANGORO => self::PANCHAM,
-            self::MEOWSTIC => self::ESPURR,
-            self::DOUBLADE => self::HONEDGE,
-            self::AEGISLASH => self::DOUBLADE,
-            self::AROMATISSE => self::SPRITZEE,
-            self::SLURPUFF => self::SWIRLIX,
-            self::MALAMAR => self::INKAY,
-            self::BARBARACLE => self::BINACLE,
-            self::DRAGALGE => self::SKRELP,
-            self::CLAWITZER => self::CLAUNCHER,
-            self::HELIOLISK => self::HELIOPTILE,
-            self::TYRANTRUM => self::TYRUNT,
-            self::AURORUS => self::AMAURA,
-            self::SYLVEON => Gen1Pokemon::EEVEE,
-            self::SLIGGOO => self::GOOMY,
-            self::GOODRA => self::SLIGGOO,
-            self::TREVENANT => self::PHANTUMP,
-            self::GOURGEIST => self::PUMPKABOO,
-            self::AVALUGG => self::BERGMITE,
-            self::NOIVERN => self::NOIBAT,
-            default => null,
-        };
+        return Generation::VI;
     }
 
     public function name(): string
