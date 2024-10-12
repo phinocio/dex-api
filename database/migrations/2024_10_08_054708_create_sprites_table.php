@@ -30,7 +30,11 @@ return new class extends Migration {
                     'black-white',
                     'x-y',
                     'omega-ruby-alpha-sapphire',
-                    'ultra-sun-ultra-moon'
+                    'ultra-sun-ultra-moon',
+                    'dream-world',
+                    'home',
+                    'official-artwork',
+                    'showdown'
                 );
             END IF;
         END$$;");
