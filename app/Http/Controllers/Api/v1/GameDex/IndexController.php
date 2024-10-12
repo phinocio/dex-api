@@ -24,7 +24,7 @@ class IndexController extends ApiController
             ->allowedIncludes([
                 'pokemon',
             ])
-            ->with('game')
+            ->with('games')
             ->get();
 
         return GameDexResource::collection($dexes);

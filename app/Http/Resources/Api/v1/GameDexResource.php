@@ -21,7 +21,7 @@ class GameDexResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'type' => $this->type,
-            'game' => GameResource::collection($this->whenLoaded('game')),
+            'games' => GameResource::collection($this->whenLoaded('games')),
             'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
             'links' => [
                 'self' => route('v1:game-dexes:show', $this->slug),
