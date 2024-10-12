@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\DB;
 
 class PokemonSeeder extends Seeder
 {
-    /** Run the database seeds. */
     public function run(): void
     {
         $pokemon = collect([
@@ -33,6 +32,7 @@ class PokemonSeeder extends Seeder
             ...Gen8Pokemon::cases(),
             ...Gen9Pokemon::cases(),
         ]);
+
         DB::table('pokemon')->insert(
             $pokemon
            ->map(function (mixed $pokemon) {
