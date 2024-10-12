@@ -110,6 +110,60 @@ enum Gen2Pokemon: int
     case HO_OH = 250;
     case CELEBI = 251;
 
+    public function evolvesFrom(): self|Gen1Pokemon|Gen3Pokemon|Gen4Pokemon|null
+    {
+        return match ($this) {
+            self::BAYLEEF => self::CHIKORITA,
+            self::MEGANIUM => self::BAYLEEF,
+            self::QUILAVA => self::CYNDAQUIL,
+            self::TYPHLOSION => self::QUILAVA,
+            self::CROCONAW => self::TOTODILE,
+            self::FERALIGATR => self::CROCONAW,
+            self::FURRET => self::SENTRET,
+            self::NOCTOWL => self::HOOTHOOT,
+            self::LEDIAN => self::LEDYBA,
+            self::ARIADOS => self::SPINARAK,
+            self::CROBAT => Gen1Pokemon::GOLBAT,
+            self::LANTURN => self::CHINCHOU,
+            self::TOGETIC => self::TOGEPI,
+            self::XATU => self::NATU,
+            self::FLAAFFY => self::MAREEP,
+            self::AMPHAROS => self::FLAAFFY,
+            self::BELLOSSOM => Gen1Pokemon::GLOOM,
+            self::MARILL => Gen3Pokemon::AZURILL,
+            self::AZUMARILL => self::MARILL,
+            self::SUDOWOODO => Gen4Pokemon::BONSLY,
+            self::POLITOED => Gen1Pokemon::POLIWHIRL,
+            self::SKIPLOOM => self::HOPPIP,
+            self::JUMPLUFF => self::SKIPLOOM,
+            self::SUNFLORA => self::SUNKERN,
+            self::QUAGSIRE => self::WOOPER,
+            self::ESPEON => Gen1Pokemon::EEVEE,
+            self::UMBREON => Gen1Pokemon::EEVEE,
+            self::SLOWKING => Gen1Pokemon::SLOWBRO,
+            self::WOBBUFFET => Gen3Pokemon::WYNAUT,
+            self::FORRETRESS => self::PINECO,
+            self::STEELIX => Gen1Pokemon::ONIX,
+            self::GRANBULL => self::SNUBBULL,
+            self::SCIZOR => Gen1Pokemon::SCYTHER,
+            self::URSARING => self::TEDDIURSA,
+            self::MAGCARGO => self::SLUGMA,
+            self::PILOSWINE => self::SWINUB,
+            self::OCTILLERY => self::REMORAID,
+            self::MANTINE => Gen4Pokemon::MANTYKE,
+            self::HOUNDOOM => self::HOUNDOUR,
+            self::KINGDRA => Gen1Pokemon::SEADRA,
+            self::DONPHAN => self::PHANPY,
+            self::PORYGON2 => Gen1Pokemon::PORYGON,
+            self::HITMONTOP => self::TYROGUE,
+            self::BLISSEY => Gen1Pokemon::CHANSEY,
+            self::PUPITAR => self::LARVITAR,
+            self::TYRANITAR => self::PUPITAR,
+            default => null,
+
+        };
+    }
+
     public function name(): string
     {
         return match ($this) {

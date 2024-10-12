@@ -58,7 +58,7 @@ enum Gen4Pokemon: int
     case BRONZOR = 436;
     case BRONZONG = 437;
     case BONSLY = 438;
-    case MIMEJR = 439;
+    case MIME_JR = 439;
     case HAPPINY = 440;
     case CHATOT = 441;
     case SPIRITOMB = 442;
@@ -113,6 +113,67 @@ enum Gen4Pokemon: int
     case DARKRAI = 491;
     case SHAYMIN = 492;
     case ARCEUS = 493;
+
+    public function evolvesFrom(): self|Gen1Pokemon|Gen2Pokemon|Gen3Pokemon|null
+    {
+        return match ($this) {
+            self::GROTLE => self::TURTWIG,
+            self::TORTERRA => self::GROTLE,
+            self::MONFERNO => self::CHIMCHAR,
+            self::INFERNAPE => self::MONFERNO,
+            self::PRINPLUP => self::PIPLUP,
+            self::EMPOLEON => self::PRINPLUP,
+            self::STARAVIA => self::STARLY,
+            self::STARAPTOR => self::STARAVIA,
+            self::BIBAREL => self::BIDOOF,
+            self::KRICKETUNE => self::KRICKETOT,
+            self::LUXRAY => self::SHINX,
+            self::ROSERADE => Gen3Pokemon::ROSELIA,
+            self::RAMPARDOS => self::CRANIDOS,
+            self::BASTIODON => self::SHIELDON,
+            self::WORMADAM => self::BURMY,
+            self::MOTHIM => self::BURMY,
+            self::VESPIQUEN => self::COMBEE,
+            self::FLOATZEL => self::BUIZEL,
+            self::CHERRIM => self::CHERUBI,
+            self::GASTRODON => self::SHELLOS,
+            self::AMBIPOM => Gen2Pokemon::AIPOM,
+            self::DRIFBLIM => self::DRIFLOON,
+            self::LOPUNNY => self::BUNEARY,
+            self::MISMAGIUS => Gen2Pokemon::MISDREAVUS,
+            self::HONCHKROW => Gen2Pokemon::MURKROW,
+            self::PURUGLY => self::GLAMEOW,
+            self::SKUNTANK => self::STUNKY,
+            self::BRONZONG => self::BRONZOR,
+            self::GABITE => self::GIBLE,
+            self::GARCHOMP => self::GABITE,
+            self::LUCARIO => self::RIOLU,
+            self::HIPPOWDON => self::HIPPOPOTAS,
+            self::DRAPION => self::SKORUPI,
+            self::TOXICROAK => self::CROAGUNK,
+            self::LUMINEON => self::FINNEON,
+            self::ABOMASNOW => self::SNOVER,
+            self::WEAVILE => Gen2Pokemon::SNEASEL,
+            self::MAGNEZONE => Gen1Pokemon::MAGNETON,
+            self::LICKILICKY => Gen1Pokemon::LICKITUNG,
+            self::RHYPERIOR => Gen1Pokemon::RHYDON,
+            self::TANGROWTH => Gen1Pokemon::TANGELA,
+            self::ELECTIVIRE => Gen1Pokemon::ELECTABUZZ,
+            self::MAGMORTAR => Gen1Pokemon::MAGMAR,
+            self::TOGEKISS => Gen2Pokemon::TOGETIC,
+            self::YANMEGA => Gen2Pokemon::YANMA,
+            self::LEAFEON => Gen1Pokemon::EEVEE,
+            self::GLACEON => Gen1Pokemon::EEVEE,
+            self::GLISCOR => Gen2Pokemon::GLIGAR,
+            self::MAMOSWINE => Gen2Pokemon::PILOSWINE,
+            self::PORYGON_Z => Gen2Pokemon::PORYGON2,
+            self::GALLADE => Gen3Pokemon::KIRLIA,
+            self::PROBOPASS => Gen3Pokemon::NOSEPASS,
+            self::DUSKNOIR => Gen3Pokemon::DUSCLOPS,
+            self::FROSLASS => Gen3Pokemon::SNORUNT,
+            default => null,
+        };
+    }
 
     public function name(): string
     {
@@ -169,7 +230,7 @@ enum Gen4Pokemon: int
             self::BRONZOR => 'Bronzor',
             self::BRONZONG => 'Bronzong',
             self::BONSLY => 'Bonsly',
-            self::MIMEJR => 'Mime Jr.',
+            self::MIME_JR => 'Mime Jr.',
             self::HAPPINY => 'Happiny',
             self::CHATOT => 'Chatot',
             self::SPIRITOMB => 'Spiritomb',
@@ -282,7 +343,7 @@ enum Gen4Pokemon: int
             self::BRONZOR => 'bronzor',
             self::BRONZONG => 'bronzong',
             self::BONSLY => 'bonsly',
-            self::MIMEJR => 'mimejr',
+            self::MIME_JR => 'mimejr',
             self::HAPPINY => 'happiny',
             self::CHATOT => 'chatot',
             self::SPIRITOMB => 'spiritomb',

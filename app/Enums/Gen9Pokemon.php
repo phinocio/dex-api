@@ -53,7 +53,7 @@ enum Gen9Pokemon: int
     case KLAWF = 950;
     case CAPSAKID = 951;
     case SCOVILLAIN = 952;
-    case RELOR = 953;
+    case RELLOR = 953;
     case RABSCA = 954;
     case FLITTLE = 955;
     case ESPATHRA = 956;
@@ -127,6 +127,61 @@ enum Gen9Pokemon: int
     case TERAPAGOS = 1024;
     case PECHARUNT = 1025;
 
+    public function evolvesFrom(): self|Gen1Pokemon|Gen2Pokemon|Gen5Pokemon|Gen8Pokemon|null
+    {
+        return match ($this) {
+            self::FLORAGATO => self::SPRIGATITO,
+            self::MEOWSCARADA => self::FLORAGATO,
+            self::CROCALOR => self::FUECOCO,
+            self::SKELEDIRGE => self::CROCALOR,
+            self::QUAXWELL => self::QUAXLY,
+            self::QUAQUAVAL => self::QUAXWELL,
+            self::OINKOLOGNE => self::LECHONK,
+            self::SPIDOPS => self::TAROUNTULA,
+            self::LOKIX => self::NYMBLE,
+            self::PAWMO => self::PAWMI,
+            self::PAWMOT => self::PAWMO,
+            self::MAUSHOLD => self::TANDEMAUS,
+            self::DACHSBUN => self::FIDOUGH,
+            self::DOLLIV => self::SMOLIV,
+            self::ARBOLIVA => self::DOLLIV,
+            self::NACLSTACK => self::NACLI,
+            self::GARGANACL => self::NACLSTACK,
+            self::ARMAROUGE => self::CHARCADET,
+            self::CERULEDGE => self::CHARCADET,
+            self::BELLIBOLT => self::TADBULB,
+            self::KILOWATTREL => self::WATTREL,
+            self::MABOSSTIFF => self::MASCHIFF,
+            self::GRAFAIAI => self::SHROODLE,
+            self::BRAMBLEGHAST => self::BRAMBLIN,
+            self::TOEDSCRUEL => self::TOEDSCOOL,
+            self::SCOVILLAIN => self::CAPSAKID,
+            self::RABSCA => self::RELLOR,
+            self::ESPATHRA => self::FLITTLE,
+            self::TINKATUFF => self::TINKATINK,
+            self::TINKATON => self::TINKATUFF,
+            self::WUGTRIO => self::WIGLETT,
+            self::PALAFIN => self::FINIZEN,
+            self::REVAVROOM => self::VAROOM,
+            self::GLIMMORA => self::GLIMMET,
+            self::HOUNDSTONE => self::GREAVARD,
+            self::CETITAN => self::CETODDLE,
+            self::ANNIHILAPE => Gen1Pokemon::PRIMEAPE,
+            self::CLODSIRE => Gen2Pokemon::WOOPER,
+            self::FARIGIRAF => Gen2Pokemon::GIRAFARIG,
+            self::DUDUNSPARCE => Gen2Pokemon::DUNSPARCE,
+            self::KINGAMBIT => Gen5Pokemon::BISHARP,
+            self::ARCTIBAX => self::FRIGIBAX,
+            self::BAXCALIBUR => self::ARCTIBAX,
+            self::GHOLDENGO => self::GIMMIGHOUL,
+            self::DIPPLIN => Gen8Pokemon::APPLIN,
+            self::SINISTCHA => self::POLCHAGEIST,
+            self::ARCHALUDON => Gen8Pokemon::DURALUDON,
+            self::HYDRAPPLE => self::DIPPLIN,
+            default => null,
+        };
+    }
+
     public function name(): string
     {
         return match ($this) {
@@ -177,7 +232,7 @@ enum Gen9Pokemon: int
             self::KLAWF => 'Klawf',
             self::CAPSAKID => 'Capsakid',
             self::SCOVILLAIN => 'Scovillain',
-            self::RELOR => 'Relor',
+            self::RELLOR => 'Rellor',
             self::RABSCA => 'Rabsca',
             self::FLITTLE => 'Flittle',
             self::ESPATHRA => 'Espathra',
@@ -303,7 +358,7 @@ enum Gen9Pokemon: int
             self::KLAWF => 'klawf',
             self::CAPSAKID => 'capsakid',
             self::SCOVILLAIN => 'scovillain',
-            self::RELOR => 'relor',
+            self::RELLOR => 'rellor',
             self::RABSCA => 'rabsca',
             self::FLITTLE => 'flittle',
             self::ESPATHRA => 'espathra',
