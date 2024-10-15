@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('game_game_dex', function (Blueprint $table) {
             $table->foreignId('game_id')->constrained();
             $table->foreignId('game_dex_id')->constrained();
+            $table->string('type');
 
             $table->primary(['game_id', 'game_dex_id']);
         });

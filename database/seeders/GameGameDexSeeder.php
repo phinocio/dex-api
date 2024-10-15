@@ -15,17 +15,11 @@ class GameGameDexSeeder extends Seeder
         $mappings = config('constants.game_dex_mappings');
 
         foreach ($mappings as $game => $gameDexes) {
-            if (is_array($gameDexes)) {
-                foreach ($gameDexes as $gameDex) {
-                    DB::table('game_game_dex')->insert([
-                        'game_id' => $game,
-                        'game_dex_id' => $gameDex,
-                    ]);
-                }
-            } else {
+            foreach ($gameDexes as $gameDex) {
                 DB::table('game_game_dex')->insert([
                     'game_id' => $game,
-                    'game_dex_id' => $gameDexes,
+                    'game_dex_id' => $gameDex->value,
+                    'type' => $gameDex->type(),
                 ]);
             }
         }

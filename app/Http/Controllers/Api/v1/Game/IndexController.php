@@ -25,6 +25,9 @@ class IndexController extends ApiController
             ->allowedIncludes([
                 'pokemon',
                 AllowedInclude::relationship('dexes', 'gameDexes'),
+                AllowedInclude::relationship('national_dex', 'nationalDex'),
+                AllowedInclude::relationship('regional_dex', 'regionalDex'),
+                AllowedInclude::relationship('generational_dex', 'generationalDex'),
             ])
             ->with(['generation'])
             ->get();
