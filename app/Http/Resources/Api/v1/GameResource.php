@@ -22,9 +22,9 @@ class GameResource extends JsonResource
             'slug' => $this->slug,
             'generation' => new GenerationResource($this->whenLoaded('generation')),
             'dexes' => GameDexResource::collection($this->whenLoaded('gameDexes')),
-            'national_dex' => GameDexResource::collection($this->whenLoaded('nationalDex')),
-            'regional_dex' => GameDexResource::collection($this->whenLoaded('regionalDex')),
-            'generational_dex' => GameDexResource::collection($this->whenLoaded('generationalDex')),
+            'national_dex' => new GameDexResource($this->whenLoaded('nationalDex')),
+            'regional_dex' => new GameDexResource($this->whenLoaded('regionalDex')),
+            'generational_dex' => new GameDexResource($this->whenLoaded('generationalDex')),
             'pokemon' => PokemonResource::collection($this->whenLoaded('pokemon')),
             'links' => [
                 'self' => route('v1:games:show', $this->slug),
