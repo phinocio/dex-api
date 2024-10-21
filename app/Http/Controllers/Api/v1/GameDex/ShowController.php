@@ -21,7 +21,7 @@ class ShowController extends ApiController
             ->allowedIncludes([
                 'pokemon',
             ])
-            ->with('game')
+            ->with('games')
             ->firstOrFail();
 
         Gate::authorize('view', $dex);
