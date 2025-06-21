@@ -32,10 +32,10 @@ class HomeSpriteSeeder extends Seeder
             ...Gen8Pokemon::cases(),
             ...Gen9Pokemon::cases(),
         ])->map(fn($pokemon) => [
-            'url' => Sprite::HOME->getBaseUrl() . '/' . $pokemon->value . '.png', // Assuming sprite URL follows this pattern
+            'url' => Sprite::HOME->getBaseUrl() . '/' . $pokemon->value . '.png',
             'version' => Sprite::HOME->value,
             'shiny' => false,
-            'pokemon_id' => $pokemon->value, // Assuming Gen1Pokemon enum uses Pokémon names/IDs
+            'pokemon_id' => $pokemon->value,
 
         ])->toArray();
 
@@ -50,10 +50,10 @@ class HomeSpriteSeeder extends Seeder
             ...Gen8Pokemon::cases(),
             ...Gen9Pokemon::cases(),
         ])->map(fn($pokemon) => [
-            'url' => Sprite::HOME->getShinyBaseUrl() . '/' . $pokemon->value . '.png', // Assuming sprite URL follows this pattern
+            'url' => Sprite::HOME->getShinyBaseUrl() . '/' . $pokemon->value . '.png',
             'version' => Sprite::HOME->value,
             'shiny' => true,
-            'pokemon_id' => $pokemon->value, // Assuming Gen1Pokemon enum uses Pokémon names/IDs
+            'pokemon_id' => $pokemon->value,
         ])->toArray();
 
         DB::table('sprites')->insert($pokemon);
