@@ -16,9 +16,9 @@ class ShowController extends ApiController
 {
     protected string $policyClass = PokemonPolicy::class;
 
-    public function __invoke(string $param): PokemonResource
+    public function __invoke(string $slug): PokemonResource
     {
-        $pokemon = QueryBuilder::for(Pokemon::where('slug', $param))
+        $pokemon = QueryBuilder::for(Pokemon::where('slug', $slug))
             ->allowedIncludes([
                 'games',
                 'generation',

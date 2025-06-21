@@ -6,4 +6,4 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\Pokemon;
 
 Route::get('/', Pokemon\IndexController::class)->name('index');
-Route::get('/{param}', Pokemon\ShowController::class)->name('show');
+Route::get('/{slug}', Pokemon\ShowController::class)->name('show');
