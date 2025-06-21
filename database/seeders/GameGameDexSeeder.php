@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class GameGameDexSeeder extends Seeder
+final class GameGameDexSeeder extends Seeder
 {
     /** Run the database seeds. */
     public function run(): void

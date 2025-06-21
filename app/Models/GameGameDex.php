@@ -6,7 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class GameGameDex extends Pivot
+final class GameGameDex extends Pivot
 {
     protected $table = 'game_game_dex';
 }

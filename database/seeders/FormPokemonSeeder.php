@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class FormPokemonSeeder extends Seeder
+final class FormPokemonSeeder extends Seeder
 {
     /** Run the database seeds. */
     public function run(): void

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Enums\Game;
+use App\Enums\v1\Game;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class GamePokemonSeeder extends Seeder
+final class GamePokemonSeeder extends Seeder
 {
     /** Run the database seeds. */
     public function run(): void

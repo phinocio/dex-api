@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Providers\AppServiceProvider;
+
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\RateLimitServiceProvider::class,
+    AppServiceProvider::class,
 ];

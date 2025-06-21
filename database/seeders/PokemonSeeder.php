@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Enums\Gen1Pokemon;
-use App\Enums\Gen2Pokemon;
-use App\Enums\Gen3Pokemon;
-use App\Enums\Gen4Pokemon;
-use App\Enums\Gen5Pokemon;
-use App\Enums\Gen6Pokemon;
-use App\Enums\Gen7Pokemon;
-use App\Enums\Gen8Pokemon;
-use App\Enums\Gen9Pokemon;
-use App\Enums\PokemonEvolutions;
+use App\Enums\v1\Gen1Pokemon;
+use App\Enums\v1\Gen2Pokemon;
+use App\Enums\v1\Gen3Pokemon;
+use App\Enums\v1\Gen4Pokemon;
+use App\Enums\v1\Gen5Pokemon;
+use App\Enums\v1\Gen6Pokemon;
+use App\Enums\v1\Gen7Pokemon;
+use App\Enums\v1\Gen8Pokemon;
+use App\Enums\v1\Gen9Pokemon;
+use App\Enums\v1\PokemonEvolutions;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PokemonSeeder extends Seeder
+final class PokemonSeeder extends Seeder
 {
     public function run(): void
     {
@@ -35,14 +35,14 @@ class PokemonSeeder extends Seeder
 
         DB::table('pokemon')->insert(
             $pokemon
-           ->map(function (mixed $pokemon) {
-               return [
-                   'name' => $pokemon->name(),
-                   'slug' => $pokemon->slug(),
-                   'generation_id' => $pokemon->generation(),
-                   'national_dex_number' => $pokemon->value,
-               ];
-           })->toArray(),
+                ->map(function (mixed $pokemon) {
+                    return [
+                        'name' => $pokemon->name(),
+                        'slug' => $pokemon->slug(),
+                        'generation_id' => $pokemon->generation(),
+                        'national_dex_number' => $pokemon->value,
+                    ];
+                })->toArray(),
         );
 
         DB::table('pokemon')->upsert(

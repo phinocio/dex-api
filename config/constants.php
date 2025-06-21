@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Enums\Game;
-use App\Enums\GameDex;
+use App\Enums\v1\Game;
+use App\Enums\v1\GameDex;
 
 return [
     'game_dex_mappings' => [

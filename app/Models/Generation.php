@@ -7,15 +7,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Generation extends Model
+final class Generation extends Model
 {
-    /** @return HasMany<Game> */
+    /** @return HasMany<Game, $this> */
     public function games(): HasMany
     {
         return $this->hasMany(Game::class);
     }
 
-    /** @return HasMany<Pokemon> */
+    /** @return HasMany<Pokemon, $this> */
     public function pokemon(): HasMany
     {
         return $this->hasMany(Pokemon::class);
