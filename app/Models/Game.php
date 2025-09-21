@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Enums\v1\DexType;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,6 +13,9 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 final class Game extends Model
 {
+    /** use HasFactory<\Database\Factories\GameFactory> */
+    use HasFactory;
+
     /** @return BelongsToMany<GameDex, $this, GameGameDex> */
     public function gameDexes(): BelongsToMany
     {
