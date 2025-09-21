@@ -7,9 +7,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Form extends Model
+final class Form extends Model
 {
-    /** @return BelongsTo<Pokemon, Form> */
+    /** @return BelongsTo<Pokemon, $this> */
     public function pokemon(): BelongsTo
     {
         return $this->belongsTo(Pokemon::class);

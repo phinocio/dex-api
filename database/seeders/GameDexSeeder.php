@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Enums\GameDex;
+use App\Enums\v1\GameDex;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class GameDexSeeder extends Seeder
+final class GameDexSeeder extends Seeder
 {
     /** Run the database seeds. */
     public function run(): void

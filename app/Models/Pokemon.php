@@ -9,35 +9,41 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Pokemon extends Model
+final class Pokemon extends Model
 {
     protected $table = 'pokemon';
 
-    /** @return BelongsTo<Pokemon, Pokemon> */
+    /** @return BelongsTo<Pokemon, $this> */
     public function evolvesFrom(): BelongsTo
     {
-        return $this->belongsTo(Pokemon::class, 'evolves_from');
+        return $this->belongsTo(self::class, 'evolves_from');
     }
 
-    /** @return BelongsToMany<Form> */
+    /** @return BelongsToMany<Form, $this> */
     public function forms(): BelongsToMany
     {
         return $this->belongsToMany(Form::class);
     }
 
-    /** @return BelongsToMany<Game> */
+    /** @return BelongsToMany<Game, $this> */
     public function games(): BelongsToMany
     {
-        return $this->belongsToMany(Game::class);
+        return $this->belongsToMany(Game::class, 'game_pokemon');
     }
 
-    /** @return BelongsTo<Generation, Pokemon> */
+    /** @return BelongsToMany<GameDex, $this> */
+    public function gameDexes(): BelongsToMany
+    {
+        return $this->belongsToMany(GameDex::class, 'game_dex_pokemon');
+    }
+
+    /** @return BelongsTo<Generation, $this> */
     public function generation(): BelongsTo
     {
         return $this->belongsTo(Generation::class);
     }
 
-    /** @return HasMany<Sprite> */
+    /** @return HasMany<Sprite, $this> */
     public function sprites(): HasMany
     {
         return $this->hasMany(Sprite::class);

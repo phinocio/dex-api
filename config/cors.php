@@ -17,11 +17,11 @@ return [
     |
     */
 
-    'paths' => ['*'],
+    'paths' => ['v1/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
 
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000')],
+    'allowed_origins' => [env('FRONTEND_URL', '')],
 
     'allowed_origins_patterns' => [],
 
@@ -32,5 +32,4 @@ return [
     'max_age' => 0,
 
     'supports_credentials' => true,
-
 ];

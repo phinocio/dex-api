@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Enums\Generation;
+use App\Enums\v1\Generation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class GenerationSeeder extends Seeder
+final class GenerationSeeder extends Seeder
 {
     /** Run the database seeds. */
     public function run(): void

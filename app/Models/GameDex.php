@@ -7,17 +7,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class GameDex extends Model
+final class GameDex extends Model
 {
-    /** @return BelongsToMany<Game> */
+    /** @return BelongsToMany<Game, $this> */
     public function games(): BelongsToMany
     {
-        return $this->belongsToMany(Game::class);
+        return $this->belongsToMany(Game::class, 'game_game_dex');
     }
 
-    /** @return BelongsToMany<Pokemon> */
+    /** @return BelongsToMany<Pokemon, $this> */
     public function pokemon(): BelongsToMany
     {
-        return $this->belongsToMany(Pokemon::class);
+        return $this->belongsToMany(Pokemon::class, 'game_dex_pokemon');
     }
 }

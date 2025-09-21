@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use App\Models\User;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Tests\TestCase;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -13,9 +17,9 @@ declare(strict_types=1);
 |
 */
 
-pest()->extend(Tests\TestCase::class)
-    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
-    ->in('Feature');
+pest()->extend(TestCase::class)
+    ->use(LazilyRefreshDatabase::class)
+    ->in('Feature', 'Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +47,113 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function login($user = null)
 {
-    // ..
+    return test()->actingAs($user ?? User::factory()->create());
+}
+
+function guest()
+{
+    return test()->assertGuest();
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function getUserJsonStructure(): array
+{
+    return [
+        'name',
+        'verified',
+        'admin',
+        'created',
+        'updated',
+    ];
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function getUserWithProfileJsonStructure(bool $includeLists = false): array
+{
+    $structure = [
+        'name',
+        'verified',
+        'profile' => getUserProfileJsonStructure(),
+        'created',
+        'updated',
+    ];
+
+    if ($includeLists) {
+        $structure['lists'] = [
+            '*' => [
+                'author',
+                'created',
+                'description',
+                'discord',
+                'expires',
+                'game',
+                'links',
+                'name',
+                'private',
+                'readme',
+                'slug',
+                'updated',
+                'url',
+                'version',
+                'website',
+            ],
+        ];
+    }
+
+    return $structure;
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function getCurrentUserJsonStructure(): array
+{
+    return [
+        'name',
+        'email',
+        'verified',
+        'admin',
+        'profile' => getUserProfileJsonStructure(),
+        'lists' => [
+            '*' => [
+                'author',
+                'created',
+                'description',
+                'discord',
+                'expires',
+                'game',
+                'links',
+                'name',
+                'private',
+                'readme',
+                'slug',
+                'updated',
+                'url',
+                'version',
+                'website',
+            ],
+        ],
+        'created',
+        'updated',
+    ];
+}
+
+/**
+ * @return array<string, mixed>
+ */
+function getUserProfileJsonStructure(): array
+{
+    return [
+        'bio',
+        'discord',
+        'kofi',
+        'patreon',
+        'website',
+    ];
 }
